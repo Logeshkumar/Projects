@@ -1,0 +1,19 @@
+﻿<Window x:Class="Wpf.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="624" Width="1341">
+    <Grid OpacityMask="#FFDE8B22" Background="Tan">
+        <Button Content="Click to Edit" Height="23" HorizontalAlignment="Left" Margin="1059,244,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <TextBox Height="99" HorizontalAlignment="Left" Margin="231,33,0,0" Name="textBox2" VerticalAlignment="Top" Width="583" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="231,160,0,0" Name="textBox3" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="124" HorizontalAlignment="Left" Margin="231,244,0,0" Name="textBox4" VerticalAlignment="Top" Width="583" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+        <Label Content="StatusTitle" Height="28" HorizontalAlignment="Left" Margin="33,63,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Status Date" Height="28" HorizontalAlignment="Left" Margin="33,158,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Status Text" Height="28" HorizontalAlignment="Left" Margin="33,298,0,0" Name="label3" VerticalAlignment="Top" />
+        <Label Content="WorkPacId" Height="28" HorizontalAlignment="Left" Margin="33,401,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Enter the Status Id" Height="28" HorizontalAlignment="Left" Margin="33,494,0,0" Name="label6" VerticalAlignment="Top" />
+        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="1059,357,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="231,499,0,0" Name="comboBox1" VerticalAlignment="Top" Width="256" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="231,401,0,0" Name="comboBox2" VerticalAlignment="Top" Width="256" />
+    </Grid>
+</Window>

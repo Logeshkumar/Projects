@@ -1,0 +1,10 @@
+D:\ip\Final\Final\bin\Final.dll
+D:\ip\Final\Final\bin\Final.pdb
+D:\ip\Final\Final\obj\Debug\ResolveAssemblyReference.cache
+D:\ip\Final\Final\obj\Debug\Final.dll
+D:\ip\Final\Final\obj\Debug\Final.pdb
+F:\Final\Final\bin\Final.dll
+F:\Final\Final\bin\Final.pdb
+F:\Final\Final\obj\Debug\ResolveAssemblyReference.cache
+F:\Final\Final\obj\Debug\Final.dll
+F:\Final\Final\obj\Debug\Final.pdb

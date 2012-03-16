@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Final" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Final" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DataMembers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ReportedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="Resolution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkPacId" type="xs:int" />
+      <xs:element minOccurs="0" name="Worpackage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bugid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataMembers" nillable="true" type="tns:DataMembers" />
+  <xs:complexType name="StatusDisp">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="StatusDisp" nillable="true" type="tns:StatusDisp" />
+  <xs:complexType name="ArrayOfDataMembers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataMembers" nillable="true" type="tns:DataMembers" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataMembers" nillable="true" type="tns:ArrayOfDataMembers" />
+</xs:schema>

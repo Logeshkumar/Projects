@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BugReport>
+  <Bug>
+    <BugId>c31f61d7-9e4b-4c89-91c0-63ad3bde1f75</BugId>
+    <BugWorkPack>WorkPackage 1</BugWorkPack>
+    <BugTitle>Bug title1</BugTitle>
+    <BugDate>4/26/2011 12:00:00 AM</BugDate>
+    <BugIssue>Issue1</BugIssue>
+    <BugResolution>Bug resolution1</BugResolution>
+  </Bug>
+  <Bug>
+    <BugId>af6edf73-0b29-46bb-b18d-0c32d1d96d09</BugId>
+    <BugWorkPack>WorkPackage 2</BugWorkPack>
+    <BugTitle>Bug title 2</BugTitle>
+    <BugDate>2011-04-26T00:00:00</BugDate>
+    <BugIssue>Issue 2</BugIssue>
+    <BugResolution>No Resoltuion found</BugResolution>
+  </Bug>
+  <Bug>
+    <BugId>53032894-69eb-4567-86ed-b1036b3d0586</BugId>
+    <BugWorkPack>Bug Work Package three</BugWorkPack>
+    <BugTitle>Bug title three</BugTitle>
+    <BugDate>2011-04-26T00:00:00</BugDate>
+    <BugIssue>Issue 3</BugIssue>
+    <BugResolution>Not found</BugResolution>
+  </Bug>
+  <Bug>
+    <BugId>367dd680-f39f-4d82-a678-1f7101788668</BugId>
+    <BugWorkPack>Bug from WPF</BugWorkPack>
+    <BugTitle>Bug title 1</BugTitle>
+    <BugDate>2011-05-02T00:00:00</BugDate>
+    <BugIssue>Jim Bug Issue</BugIssue>
+    <BugResolution>Not found</BugResolution>
+  </Bug>
+  <Bug>
+    <BugId>e7f839a5-f952-4fbc-9150-a293e4f357b0</BugId>
+    <BugWorkPack>new bug</BugWorkPack>
+    <BugTitle>Jim's bug</BugTitle>
+    <BugDate>5/5/2011 12:00:00 AM</BugDate>
+    <BugIssue>Jim's Issue</BugIssue>
+    <BugResolution>Not found</BugResolution>
+  </Bug>
+  <Bug>
+    <BugId>ff156249-713d-44f7-b9c6-28399bd85410</BugId>
+    <BugWorkPack>fdf</BugWorkPack>
+    <BugTitle>dfd</BugTitle>
+    <BugDate>11/23/2011 12:00:00 AM</BugDate>
+    <BugIssue>vijay</BugIssue>
+    <BugResolution>no</BugResolution>
+  </Bug>
+</BugReport>

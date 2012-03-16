@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WcfService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55366/WcfService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55366/WcfService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55366/WcfService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Final" />
+      <xsd:import schemaLocation="http://localhost:55366/WcfService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWcfService_IsUserValid_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserValid" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_IsUserValid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_CreateBug_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBug" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_CreateBug_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBugResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Edit_InputMessage">
+    <wsdl:part name="parameters" element="tns:Edit" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Edit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_saveEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveEdit" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_saveEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:saveEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Getxml_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getxml" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Getxml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetxmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_disp_InputMessage">
+    <wsdl:part name="parameters" element="tns:disp" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_disp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:dispResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_LoadStatusId_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadStatusId" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_LoadStatusId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadStatusIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_LoadWorkPackId_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadWorkPackId" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_LoadWorkPackId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadWorkPackIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_LoadBugId_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadBugId" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_LoadBugId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadBugIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_BugEditing_InputMessage">
+    <wsdl:part name="parameters" element="tns:BugEditing" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_BugEditing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BugEditingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_BugEditSave_InputMessage">
+    <wsdl:part name="parameters" element="tns:BugEditSave" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_BugEditSave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BugEditSaveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWcfService">
+    <wsdl:operation name="IsUserValid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/IsUserValid" message="tns:IWcfService_IsUserValid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/IsUserValidResponse" message="tns:IWcfService_IsUserValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Create" message="tns:IWcfService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/CreateResponse" message="tns:IWcfService_Create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBug">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/CreateBug" message="tns:IWcfService_CreateBug_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/CreateBugResponse" message="tns:IWcfService_CreateBug_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Edit" message="tns:IWcfService_Edit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/EditResponse" message="tns:IWcfService_Edit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/saveEdit" message="tns:IWcfService_saveEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/saveEditResponse" message="tns:IWcfService_saveEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Delete" message="tns:IWcfService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/DeleteResponse" message="tns:IWcfService_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getxml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Getxml" message="tns:IWcfService_Getxml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetxmlResponse" message="tns:IWcfService_Getxml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="disp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/disp" message="tns:IWcfService_disp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/dispResponse" message="tns:IWcfService_disp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadStatusId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/LoadStatusId" message="tns:IWcfService_LoadStatusId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/LoadStatusIdResponse" message="tns:IWcfService_LoadStatusId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadWorkPackId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/LoadWorkPackId" message="tns:IWcfService_LoadWorkPackId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/LoadWorkPackIdResponse" message="tns:IWcfService_LoadWorkPackId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadBugId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/LoadBugId" message="tns:IWcfService_LoadBugId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/LoadBugIdResponse" message="tns:IWcfService_LoadBugId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BugEditing">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/BugEditing" message="tns:IWcfService_BugEditing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/BugEditingResponse" message="tns:IWcfService_BugEditing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BugEditSave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/BugEditSave" message="tns:IWcfService_BugEditSave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/BugEditSaveResponse" message="tns:IWcfService_BugEditSave_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWcfService" type="tns:IWcfService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsUserValid">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/IsUserValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBug">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/CreateBug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Edit">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/Edit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEdit">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/saveEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getxml">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/Getxml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="disp">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/disp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadStatusId">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/LoadStatusId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadWorkPackId">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/LoadWorkPackId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadBugId">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/LoadBugId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BugEditing">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/BugEditing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BugEditSave">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/BugEditSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WcfService">
+    <wsdl:port name="BasicHttpBinding_IWcfService" binding="tns:BasicHttpBinding_IWcfService">
+      <soap:address location="http://localhost:55366/WcfService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfBug.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit" Height="656" Width="1356">
+    <Grid Height="546" Width="1256" Background="Tan">
+        <Label Content="WorkPackage Name" Height="28" HorizontalAlignment="Left" Margin="54,39,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Bug Title" Height="28" HorizontalAlignment="Left" Margin="54,106,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Select Bug Date" Height="28" HorizontalAlignment="Left" Margin="54,188,0,0" Name="label3" VerticalAlignment="Top" />
+        <Label Content="Bug Issue" Height="28" HorizontalAlignment="Left" Margin="54,264,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Bug Resolution" Height="28" HorizontalAlignment="Left" Margin="54,374,0,0" Name="label5" VerticalAlignment="Top" />
+        <TextBox Height="42" HorizontalAlignment="Left" Margin="230,39,0,0" Name="textBox1" VerticalAlignment="Top" Width="603" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+        <TextBox Height="62" HorizontalAlignment="Left" Margin="230,106,0,0" Name="textBox2" VerticalAlignment="Top" Width="603" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+        <TextBox Height="74" HorizontalAlignment="Left" Margin="230,250,0,0" Name="textBox4" VerticalAlignment="Top" Width="603" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+        <TextBox Height="101" HorizontalAlignment="Left" Margin="230,352,0,0" Name="textBox5" VerticalAlignment="Top" Width="603" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="230,489,0,0" Name="comboBox1" VerticalAlignment="Top" Width="344" />
+        <Label Content="Select Bug Id" Height="28" HorizontalAlignment="Left" Margin="54,489,0,0" Name="label6" VerticalAlignment="Top" />
+        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="1087,269,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Button Content="Click to Edit" Height="23" HorizontalAlignment="Left" Margin="1087,129,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="230,188,0,0" Name="datePicker1" VerticalAlignment="Top" Width="344" />
+    </Grid>
+</Window>

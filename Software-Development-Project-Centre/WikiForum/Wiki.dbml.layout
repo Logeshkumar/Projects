@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Wiki">
+  <DataContextMoniker Name="/WikiDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8b7806a9-ece5-4acd-88b6-9e06bc640095" absoluteBounds="2.25, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/WikiDataContext/aspnet_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="783b1356-2129-439f-8848-e162b2c9bfb3" absoluteBounds="2.265, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="88bede47-82a1-447e-b24d-3ba39df390ca" absoluteBounds="6, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/WikiDataContext/WikiTeam" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e474e4f3-2d4b-4a74-8863-dcd4a629b59e" absoluteBounds="6.015, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 1.81814697265625); (6 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WikiDataContext/aspnet_User/aspnet_User_WikiTeam" />
+      <nodes>
+        <classShapeMoniker Id="8b7806a9-ece5-4acd-88b6-9e06bc640095" />
+        <classShapeMoniker Id="88bede47-82a1-447e-b24d-3ba39df390ca" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="836a1160-fc94-4308-83c5-4d1d12a70925" absoluteBounds="4.5, 3.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/WikiDataContext/WikiTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d29b3be-f7d8-4a0f-815e-26efd0a7cd7e" absoluteBounds="4.515, 3.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

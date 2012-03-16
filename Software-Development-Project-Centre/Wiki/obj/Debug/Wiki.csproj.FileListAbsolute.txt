@@ -1,0 +1,5 @@
+D:\ip\Final\Wiki\bin\Wiki.dll
+D:\ip\Final\Wiki\bin\Wiki.pdb
+D:\ip\Final\Wiki\obj\Debug\ResolveAssemblyReference.cache
+D:\ip\Final\Wiki\obj\Debug\Wiki.dll
+D:\ip\Final\Wiki\obj\Debug\Wiki.pdb
