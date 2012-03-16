@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         EXECUTIVE
+      </PackageName>
+      <CodeReference>
+         <File>
+            EXECUTIVE.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            WINTOOLS
+         </Dependencies>
+         <Dependencies >
+            PARSER
+         </Dependencies>
+         <Dependencies >
+            CONTAINER
+         </Dependencies>
+         <Dependencies >
+            XMLTRAN
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

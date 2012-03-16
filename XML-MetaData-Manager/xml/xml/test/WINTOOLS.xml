@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         WINTOOLS
+      </PackageName>
+      <CodeReference>
+         <File>
+            WINTOOLS.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            STRINGCONVERSION
+         </Dependencies>
+         <Dependencies >
+            FILEINFO
+         </Dependencies>
+         <Dependencies >
+            CONTAINER
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

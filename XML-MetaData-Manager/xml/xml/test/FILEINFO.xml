@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         FILEINFO
+      </PackageName>
+      <CodeReference>
+         <File>
+            FILEINFO.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            STRINGCONVERSION
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

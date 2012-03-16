@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         GETH
+      </PackageName>
+      <CodeReference>
+         <File>
+            GETH.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            none
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

@@ -1,0 +1,85 @@
+
+           ANAL - Code Analysis Program
+  ----------------------------------------------
+       copyright (c) Jim Fawcett, 1992-2000
+           all rights granted to users
+             except right to publish
+
+
+  file path:
+  C:\SU\JWFCLASS\XML
+
+
+  11/10/2001  02:33:00 PM     17882  xmlTran.cpp    
+ ==================================================
+   cyclo lines function name
+     1     8   xmlElem::makeTag
+     3     9   xmlElem::addAttrib
+     1     1   xmlElem::xmlElem
+     3    15   xmlElem::xmlElem
+     1     6   xmlElem::reviseTagName
+     1     6   xmlElem::reviseAttrib
+     1     6   xmlElem::reviseBody
+     2    12   xmlElem::tagName
+     2    10   xmlElem::attribExpression
+     2    10   xmlElem::body
+     1     1   operatorstrVal
+     1     6   xmlElem::flush
+     1     1   xmlElem::elemStr
+     5    30   xmlElem::format
+     1     1   xmlRep::xmlRep
+     1     1   xmlRep::xmlRep
+     1     1   operatorstrVal
+     1     5   xmlRep::addSibling
+     1    10   xmlRep::makeParent
+     1     5   xmlRep::makeDoc
+     1     7   xmlRep::flush
+     1     4   xmlRep::xmlStr
+     1     1   xmlRep::front
+     5    18   xmlRep::nextTag
+     1     5   xmlRep::firstTag
+     5    17   xmlRep::findNextTag
+     1     5   xmlRep::findFirstTag
+     4    16   xmlRep::find
+     1     7   xmlRep::findCloseTag
+     3    15   xmlRep::nextElem
+     1     5   xmlRep::firstElem
+     3    10   xmlRep::makeCollection
+     5    30   xmlRep::format
+     1     4   xmlRep::type
+     1    10   subtitle
+     1    12   title
+    10   186   main
+
+  11/10/2001  02:31:24 PM      6383  xmlTran.h      
+ ==================================================
+   cyclo lines function name
+  - type:   typedef const std::string &conStrRef 
+  - type:   typedef std::string &strRef 
+  - type:   typedef std::string strVal 
+  - type:   typedef std::string::size_type strPos 
+  - type:   typedef std::string::iterator strIter 
+  - type:   class xmlElem 
+     1     5   operator<<
+  - type:   typedef std::vector < xmlElem > elemColl 
+  - type:   class xmlRep 
+     1     5   operator<<
+
+  module summary:
+ ================
+  lines of function code: 506
+  lines of code text:     809
+  cyclomatic complexity:  78
+
+ =================================================
+          summary statistics - all files:
+ =================================================
+
+[   78,  506] - total cyclo, total function lines
+         809  - total lines
+
+  functions exceeding cc or line limits: 
+ ----------------------------------------
+    10   186   main
+
+

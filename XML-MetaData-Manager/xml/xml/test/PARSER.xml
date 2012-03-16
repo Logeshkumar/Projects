@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         PARSER
+      </PackageName>
+      <CodeReference>
+         <File>
+            PARSER.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            ITOKCOLLECTION
+         </Dependencies>
+         <Dependencies >
+            TOKENIZER
+         </Dependencies>
+         <Dependencies >
+            SEMIEXPRESSION
+         </Dependencies>
+         <Dependencies >
+            ACTIONSANDRULES
+         </Dependencies>
+         <Dependencies >
+            CONFIGUREPARSER
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         CONFIGUREPARSER
+      </PackageName>
+      <CodeReference>
+         <File>
+            CONFIGUREPARSER.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            PARSER
+         </Dependencies>
+         <Dependencies >
+            SEMIEXPRESSION
+         </Dependencies>
+         <Dependencies >
+            TOKENIZER
+         </Dependencies>
+         <Dependencies >
+            ACTIONSANDRULES
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

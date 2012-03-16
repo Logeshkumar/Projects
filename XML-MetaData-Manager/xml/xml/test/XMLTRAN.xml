@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         XMLTRAN
+      </PackageName>
+      <CodeReference>
+         <File>
+            XMLTRAN.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            CONTAINER
+         </Dependencies>
+         <Dependencies >
+            WINTOOLS
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

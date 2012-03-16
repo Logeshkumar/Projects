@@ -1,0 +1,186 @@
+
+==================================
+ Testing XML Creation and Parsing
+==================================
+
+   test xml element construction and de-construction
+  ---------------------------------------------------
+<myTag1>this is the body of myTag1</myTag1>
+tag:    myTag1
+attrib: 
+body:   this is the body of myTag1
+
+<myTag2 attrib = "0">body of myTag2</myTag2>
+tag:    myTag2
+attrib: attrib = "0"
+body:   body of myTag2
+
+---------------------------
+ testing xmlElem revisions
+---------------------------
+
+   test tag revision
+  -------------------
+<myNewTag2 attrib = "0">body of myTag2</myNewTag2>
+
+   test attrib revision
+  ----------------------
+<myNewTag2 newAttrib="1">body of myTag2</myNewTag2>
+
+   test body revision
+  --------------------
+<myNewTag2 newAttrib="1">new body for myTag2</myNewTag2>
+
+   test revision of empty element
+  --------------------------------
+revised tagName:  <wasEmpty ></wasEmpty>
+revised attrib:   < attrib="wasEmpty"></>
+revised body:     < >this body wasEmpty</>
+
+----------------------------
+ test formatting of xmlElem
+----------------------------
+<myNewTag2 newAttrib="1">
+   new body for myTag2
+</myNewTag2>
+
+---------------------------------
+ testing creation of XML strings
+---------------------------------
+
+   test addSibling:
+  ------------------
+<myTag1>this is the body of myTag1</myTag1><myNewTag2 newAttrib="1">new body for myTag2</myNewTag2><myNewTag2 newAttrib="1">this element has same tag as previous</myNewTag2>
+
+   test creation of parent:
+  --------------------------
+<parent><myTag1>this is the body of myTag1</myTag1><myNewTag2 newAttrib="1">new body for myTag2</myNewTag2><myNewTag2 newAttrib="1">this element has same tag as previous</myNewTag2></parent>
+
+   test creation of document:
+  ----------------------------
+<? xml version="1.0" ?><parent><myTag1>this is the body of myTag1</myTag1><myNewTag2 newAttrib="1">new body for myTag2</myNewTag2><myNewTag2 newAttrib="1">this element has same tag as previous</myNewTag2></parent>
+
+---------------------------
+ test finding XML elements
+---------------------------
+
+   test find(tag,elem)
+  ---------------------
+<myTag1>
+   this is the body of myTag1
+</myTag1>
+
+<myNewTag2 newAttrib="1">
+   new body for myTag2
+</myNewTag2>
+
+<parent>
+   <myTag1>
+      this is the body of myTag1
+   </myTag1>
+   <myNewTag2 newAttrib="1">
+      new body for myTag2
+   </myNewTag2>
+   <myNewTag2 newAttrib="1">
+      this element has same tag as previous
+   </myNewTag2>
+</parent>
+
+could not find notExist
+
+   test bool nextTag(strRef tag)
+  -------------------------------
+parent
+
+   test strPos findNextTag(strRef tag)
+  -------------------------------------
+pos: 23, tag: parent
+pos: 213, closing tag
+pos: 31, tag: myTag1
+pos: 74, closing tag
+pos: 74, tag: myNewTag2
+pos: 130, closing tag
+pos: 130, tag: myNewTag2
+pos: 204, closing tag
+
+   test bool nextElem(xmlElem &elem)
+  -----------------------------------
+<parent>
+   <myTag1>
+      this is the body of myTag1
+   </myTag1>
+   <myNewTag2 newAttrib="1">
+      new body for myTag2
+   </myNewTag2>
+   <myNewTag2 newAttrib="1">
+      this element has same tag as previous
+   </myNewTag2>
+</parent>
+
+<myTag1>
+   this is the body of myTag1
+</myTag1>
+
+<myNewTag2 newAttrib="1">
+   new body for myTag2
+</myNewTag2>
+
+<myNewTag2 newAttrib="1">
+   this element has same tag as previous
+</myNewTag2>
+
+
+----------------------------
+ test formatting XML string
+----------------------------
+<? xml version="1.0" ?>
+   <parent>
+      <myTag1>
+         this is the body of myTag1
+      </myTag1>
+      <myNewTag2 newAttrib="1">
+         new body for myTag2
+      </myNewTag2>
+      <myNewTag2 newAttrib="1">
+         this element has same tag as previous
+      </myNewTag2>
+   </parent>
+
+---------------------------------
+ test makeCollection of elements
+---------------------------------
+<parent><myTag1>this is the body of myTag1</myTag1><myNewTag2 newAttrib="1">new body for myTag2</myNewTag2><myNewTag2 newAttrib="1">this element has same tag as previous</myNewTag2></parent>
+<myTag1>this is the body of myTag1</myTag1>
+<myNewTag2 newAttrib="1">new body for myTag2</myNewTag2>
+<myNewTag2 newAttrib="1">this element has same tag as previous</myNewTag2>
+
+------------------------------------------------
+ test creation of relatively complex XML string
+------------------------------------------------
+<? xml version="1.0" ?>
+   <CRC_Collection>
+      <crc>
+         <title>
+            Exec
+         </title>
+         <responsiblities:>
+            To Be Determined
+         </responsiblities:>
+         <collaborators:>
+            To Be Determined
+         </collaborators:>
+      </crc>
+      <crc>
+         <title >
+            CRCProc
+         </title>
+         <responsiblities:>
+            To Be Determined
+         </responsiblities:>
+         <collaborators:>
+            To Be Determined
+         </collaborators:>
+      </crc>
+   </CRC_Collection>
+
+

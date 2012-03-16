@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         SEMIEXPRESSION
+      </PackageName>
+      <CodeReference>
+         <File>
+            SEMIEXPRESSION.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            ITOKCOLLECTION
+         </Dependencies>
+         <Dependencies >
+            TOKENIZER
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

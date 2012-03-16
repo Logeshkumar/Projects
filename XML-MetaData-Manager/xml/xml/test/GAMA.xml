@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         GAMA
+      </PackageName>
+      <CodeReference>
+         <File>
+            GAMA.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            STRING
+         </Dependencies>
+         <Dependencies >
+            GETH
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

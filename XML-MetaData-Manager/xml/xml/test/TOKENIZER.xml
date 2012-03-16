@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         TOKENIZER
+      </PackageName>
+      <CodeReference>
+         <File>
+            TOKENIZER.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            none
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>

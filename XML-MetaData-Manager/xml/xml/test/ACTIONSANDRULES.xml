@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         ACTIONSANDRULES
+      </PackageName>
+      <CodeReference>
+         <File>
+            ACTIONSANDRULES.h
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            PARSER
+         </Dependencies>
+         <Dependencies >
+            ITOKCOLLECTION
+         </Dependencies>
+         <Dependencies >
+            XMLTRAN
+         </Dependencies>
+         <Dependencies >
+            CONTAINER
+         </Dependencies>
+         <Dependencies >
+            TOKENIZER
+         </Dependencies>
+         <Dependencies >
+            SEMIEXPRESSION
+         </Dependencies>
+      </PackageDependencies>
+   </XMLProcessing>
