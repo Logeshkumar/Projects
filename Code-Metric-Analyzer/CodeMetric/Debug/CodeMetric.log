@@ -1,0 +1,49 @@
+﻿Build started 2/22/2011 11:46:18 PM.
+     1>Project "d:\oood\CodeMetric\CodeMetric\CodeMetric.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\CodeMetric.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\CodeMetric.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /D EXECUTIVE_H /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ActionsAndRules.cpp ConfigureParser.cpp Executive.cpp Parser.cpp SemiExpression.cpp testingg.cpp Tokenizer.cpp
+         Tokenizer.cpp
+         testingg.cpp
+         SemiExpression.cpp
+         Parser.cpp
+         Executive.cpp
+         ConfigureParser.cpp
+         ActionsAndRules.cpp
+         Generating Code...
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\CodeMetric.exe.embed.manifest.res" Debug\CodeMetric_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"d:\oood\CodeMetric\Debug\CodeMetric.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CodeMetric.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"d:\oood\CodeMetric\Debug\CodeMetric.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"d:\oood\CodeMetric\Debug\CodeMetric.lib" /MACHINE:X86 Debug\CodeMetric.exe.embed.manifest.res
+         Debug\ActionsAndRules.obj
+         Debug\ConfigureParser.obj
+         Debug\Executive.obj
+         Debug\Parser.obj
+         Debug\SemiExpression.obj
+         Debug\testingg.obj
+         Debug\Tokenizer.obj
+       Manifest:
+         Deleting file "Debug\CodeMetric.exe.embed.manifest".
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\CodeMetric.exe.embed.manifest" /manifest Debug\CodeMetric.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\CodeMetric.exe.embed.manifest.res" Debug\CodeMetric_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"d:\oood\CodeMetric\Debug\CodeMetric.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CodeMetric.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"d:\oood\CodeMetric\Debug\CodeMetric.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"d:\oood\CodeMetric\Debug\CodeMetric.lib" /MACHINE:X86 Debug\CodeMetric.exe.embed.manifest.res
+         Debug\ActionsAndRules.obj
+         Debug\ConfigureParser.obj
+         Debug\Executive.obj
+         Debug\Parser.obj
+         Debug\SemiExpression.obj
+         Debug\testingg.obj
+         Debug\Tokenizer.obj
+         CodeMetric.vcxproj -> d:\oood\CodeMetric\Debug\CodeMetric.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\CodeMetric.unsuccessfulbuild".
+         Touching "Debug\CodeMetric.lastbuildstate".
+     1>Done Building Project "d:\oood\CodeMetric\CodeMetric\CodeMetric.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.83
