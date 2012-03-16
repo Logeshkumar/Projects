@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         GAMA
+      </PackageName>
+      <CodeReference>
+         <File>
+            GAMA.h
+         </File>
+         <File>
+            GAMA.cpp
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            STRING
+         </Dependencies>
+         <Dependencies >
+            GETH
+         </Dependencies>
+      </PackageDependencies>
+      <EdgePath>
+         <Edge>
+            D:\ood2.2\xml\xml\xml
+         </Edge>
+      </EdgePath>
+   </XMLProcessing>

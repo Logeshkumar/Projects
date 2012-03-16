@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         ACTIONSANDRULES
+      </PackageName>
+      <CodeReference>
+         <File>
+            ACTIONSANDRULES.h
+         </File>
+         <File>
+            ACTIONSANDRULES.cpp
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            PARSER
+         </Dependencies>
+         <Dependencies >
+            ITOKCOLLECTION
+         </Dependencies>
+         <Dependencies >
+            XMLTRAN
+         </Dependencies>
+         <Dependencies >
+            CONTAINER
+         </Dependencies>
+         <Dependencies >
+            TOKENIZER
+         </Dependencies>
+         <Dependencies >
+            SEMIEXPRESSION
+         </Dependencies>
+      </PackageDependencies>
+      <EdgePath>
+         <Edge>
+            D:\ood2.2\xml\xml\xml
+         </Edge>
+      </EdgePath>
+   </XMLProcessing>

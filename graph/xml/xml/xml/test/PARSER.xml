@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+   <XMLProcessing>
+      <PackageName>
+         PARSER
+      </PackageName>
+      <CodeReference>
+         <File>
+            PARSER.h
+         </File>
+         <File>
+            PARSER.cpp
+         </File>
+      </CodeReference>
+      <PackageDependencies>
+         <Dependencies >
+            ITOKCOLLECTION
+         </Dependencies>
+         <Dependencies >
+            TOKENIZER
+         </Dependencies>
+         <Dependencies >
+            SEMIEXPRESSION
+         </Dependencies>
+         <Dependencies >
+            ACTIONSANDRULES
+         </Dependencies>
+         <Dependencies >
+            CONFIGUREPARSER
+         </Dependencies>
+      </PackageDependencies>
+      <EdgePath>
+         <Edge>
+            D:\ood2.2\xml\xml\xml
+         </Edge>
+      </EdgePath>
+   </XMLProcessing>
