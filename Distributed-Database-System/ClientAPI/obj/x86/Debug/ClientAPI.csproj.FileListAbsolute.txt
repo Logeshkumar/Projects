@@ -1,0 +1,14 @@
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\ClientAPI.dll.config
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\ClientAPI.dll
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\ClientAPI.pdb
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\DependencyInjection.dll
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\EskimoDbInterfaces.exe
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\Executor.exe
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\ITestInterface.dll
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\NCover.dll
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\DependencyInjection.pdb
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\EskimoDbInterfaces.pdb
+C:\d\studio\eskimodb\ClientAPI\bin\Debug\Executor.pdb
+C:\d\studio\eskimodb\ClientAPI\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\d\studio\eskimodb\ClientAPI\obj\x86\Debug\ClientAPI.dll
+C:\d\studio\eskimodb\ClientAPI\obj\x86\Debug\ClientAPI.pdb

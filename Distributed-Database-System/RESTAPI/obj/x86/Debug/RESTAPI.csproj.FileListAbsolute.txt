@@ -1,0 +1,5 @@
+C:\Users\loki\Desktop\eskimodb\RESTAPI\bin\Debug\RESTAPI.exe
+C:\Users\loki\Desktop\eskimodb\RESTAPI\bin\Debug\RESTAPI.pdb
+C:\Users\loki\Desktop\eskimodb\RESTAPI\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\RESTAPI\obj\x86\Debug\RESTAPI.exe
+C:\Users\loki\Desktop\eskimodb\RESTAPI\obj\x86\Debug\RESTAPI.pdb

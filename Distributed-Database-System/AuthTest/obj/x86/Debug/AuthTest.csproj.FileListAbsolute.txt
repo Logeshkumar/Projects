@@ -1,0 +1,16 @@
+C:\d\studio\eskimodb\AuthTest\bin\Debug\AuthTest.exe
+C:\d\studio\eskimodb\AuthTest\bin\Debug\AuthTest.pdb
+C:\d\studio\eskimodb\AuthTest\bin\Debug\AuthServer.exe
+C:\d\studio\eskimodb\AuthTest\bin\Debug\DependencyInjection.dll
+C:\d\studio\eskimodb\AuthTest\bin\Debug\EskimoDbInterfaces.exe
+C:\d\studio\eskimodb\AuthTest\bin\Debug\Executor.exe
+C:\d\studio\eskimodb\AuthTest\bin\Debug\ITestInterface.dll
+C:\d\studio\eskimodb\AuthTest\bin\Debug\NCover.dll
+C:\d\studio\eskimodb\AuthTest\bin\Debug\AuthServer.pdb
+C:\d\studio\eskimodb\AuthTest\bin\Debug\Executor.pdb
+C:\d\studio\eskimodb\AuthTest\bin\Debug\ITestInterface.pdb
+C:\d\studio\eskimodb\AuthTest\bin\Debug\DependencyInjection.pdb
+C:\d\studio\eskimodb\AuthTest\bin\Debug\EskimoDbInterfaces.pdb
+C:\d\studio\eskimodb\AuthTest\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\d\studio\eskimodb\AuthTest\obj\x86\Debug\AuthTest.exe
+C:\d\studio\eskimodb\AuthTest\obj\x86\Debug\AuthTest.pdb

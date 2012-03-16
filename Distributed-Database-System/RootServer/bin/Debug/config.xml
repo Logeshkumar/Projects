@@ -1,0 +1,19 @@
+<DIConfig>
+  <Imports>
+  </Imports>
+  
+  <Filters>
+	<Filter type="include" key="type" value="ITest" />
+	<Filter type="include" key="namespace" value="edu.syr.cse784.eskimodb" />
+  </Filters>
+  
+  <Libs>
+	<Lib dir="." pattern="*.dll,*.exe" />
+  </Libs>
+  
+  <Mappings>
+	<Mapping name="validate" type="edu.syr.cse784.eskimodb.rootserver.MockAuthServer" />
+	<Mapping name="tableserver" type="edu.syr.cse784.eskimodb.rootserver.MockTableServer" />
+	<Mapping name="rootserver test" type="edu.syr.cse784.eskimodb.sharedobjs.IRootServer" wcf="true" />
+  </Mappings>
+</DIConfig>

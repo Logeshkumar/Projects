@@ -1,0 +1,12 @@
+C:\Users\loki\Desktop\eskimodb\ITestInterface\ITestInterface\bin\Debug\ITestInterface.dll
+C:\Users\loki\Desktop\eskimodb\ITestInterface\ITestInterface\bin\Debug\ITestInterface.pdb
+C:\Users\loki\Desktop\eskimodb\ITestInterface\ITestInterface\bin\Debug\NCover.dll
+C:\Users\loki\Desktop\eskimodb\ITestInterface\ITestInterface\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\ITestInterface\ITestInterface\obj\x86\Debug\ITestInterface.dll
+C:\Users\loki\Desktop\eskimodb\ITestInterface\ITestInterface\obj\x86\Debug\ITestInterface.pdb
+C:\d\studio\eskimodb\ITestInterface\ITestInterface\bin\Debug\ITestInterface.dll
+C:\d\studio\eskimodb\ITestInterface\ITestInterface\bin\Debug\ITestInterface.pdb
+C:\d\studio\eskimodb\ITestInterface\ITestInterface\bin\Debug\NCover.dll
+C:\d\studio\eskimodb\ITestInterface\ITestInterface\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\d\studio\eskimodb\ITestInterface\ITestInterface\obj\x86\Debug\ITestInterface.dll
+C:\d\studio\eskimodb\ITestInterface\ITestInterface\obj\x86\Debug\ITestInterface.pdb

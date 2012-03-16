@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using edu.syr.cse784.eskimodb.sharedobjs;
+
+namespace edu.syr.cse784.eskimodb.authserver
+{
+    class AuthImplement  : edu.syr.cse784.eskimodb.sharedobjs.IAuthServer,
+        edu.syr.cse784.eskimodb.sharedobjs.IAuthValidate
+    {
+        public AuthImplement(AuthManager mgr) 
+        {
+            m_Mgr = mgr;     
+        }
+
+        public bool Validate(string token, out DateTime ExpTime) 
+        {
+            return m_Mgr.TokenVerifier(token, out ExpTime);
+        }
+
+        public AuthResult CreateUser(string newUser, string newUserPwd, string token)
+        {
+            AuthResult authret = new AuthResult();
+            //string msg = "";
+            authret.valid = m_Mgr.Register(newUser, newUserPwd, out authret.msg);
+            return authret;
+        }
+
+        public bool IsAdmin(string auth_token)
+        {
+            return true;
+        }
+
+        public AuthResult Authenticate(string userName, string pwd, out string token)
+        {
+            AuthResult authret = new AuthResult();
+            //string msg = "";
+            authret.valid = m_Mgr.LogIn(userName, pwd, out token, out authret.msg);
+            return authret;
+        }
+        private AuthManager m_Mgr;
+    }
+}

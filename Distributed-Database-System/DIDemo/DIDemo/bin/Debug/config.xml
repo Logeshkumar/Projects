@@ -1,0 +1,4 @@
+<root>
+<lib path="../debug"></lib>
+<config path="mapping.xml"></config>
+</root>

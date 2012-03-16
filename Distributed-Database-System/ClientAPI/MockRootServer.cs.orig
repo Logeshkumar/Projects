@@ -1,0 +1,227 @@
+﻿////////////////////////////////////////////////////////////////////////////////
+// MockRootServer.cs - Module to mock the Root Server Functionality           //
+// version 1.0                                                                //
+// Language:     C# 4.0                                                       //
+// Platform:     Windows 7                                                    //
+// Application:  CSE784 EskimoDB                                              //
+// Author:       Anjali Banka, Fall 2011, Syracuse University                 //
+//               abanka@syr.edu                                               //
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+Module Operations: 
+==================
+The module ensures that is used to mock up the root server for the Client API. The module 
+ * implements the IRootServer. The ExecQuery function is responsible to identify the query 
+ * and respond accordingly. 
+
+ 
+Public Interface
+=================
+MockRootServer m_MockRootServerObj = new MockRootServer();
+ * m_MockRootServerObj. ExecQuery(string query, string token)
+ 
+Build Process
+================
+ * 
+ * 
+ Required Files:
+===================
+ * IRootServer.cs
+
+
+Maintenance History:
+====================
+ver 1.0 : 17 October 2011
+
+*/
+
+using System;
+using edu.syr.cse784.eskimodb.sharedobjs;
+
+namespace edu.syr.cse784.eskimodb.rootserver
+{
+    /// <summary>
+    /// Mock root server class to interact with the client API 
+    /// </summary>
+    public class MockRootServer : IRootServer
+    {
+        private int m_FirstDataBaseCreated, m_TableCreated, m_ValuesInserted, m_TableSelected;
+        private int m_Result;
+        private string m_Message;
+        QueryResult m_QueryResultObj;
+
+
+        /// <summary>
+        /// Connstructor for initialization 
+        /// </summary>
+        public MockRootServer()
+        {
+            m_FirstDataBaseCreated = 1;
+            m_TableCreated = 1;
+            m_ValuesInserted = 1;
+            m_TableSelected = 1;
+
+
+        }
+        /// <summary>
+        /// Function to create a new table
+        /// </summary>
+        /// <returns></returns>
+        public QueryResult CreateTable()
+        {
+            string ret = string.Empty;
+            if (m_FirstDataBaseCreated == 0)
+            {
+                m_TableCreated = 0;
+                m_Message = "Succeed";
+                m_Result = m_TableCreated;
+                m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                return m_QueryResultObj;
+
+            }
+            else
+            {
+                m_Result = m_TableCreated;
+                m_Message = "Database is not created";
+                m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                return m_QueryResultObj;
+
+            }
+
+        }
+
+        /// <summary>
+        /// Function to insert items in the table , is table is created
+        /// </summary>
+        /// <returns></returns>
+        public QueryResult InsertIntoTable()
+        {
+            string ret = string.Empty;
+            if ((m_FirstDataBaseCreated == 0) && (m_TableCreated == 0))
+            {
+                m_ValuesInserted = 0;
+                m_Result = m_ValuesInserted;
+                m_Message = "Succeed";
+                m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                return m_QueryResultObj;
+            }
+            else
+            {
+                m_Result = m_TableCreated;
+                m_Message = "Value cannot be inserted as the table is not created";
+                m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                return m_QueryResultObj;
+
+            }
+        }
+
+        /// <summary>
+        /// Function to enable select queries
+        /// </summary>
+        /// <returns></returns>
+        public QueryResult SelectFromTable()
+        {
+            string ret = string.Empty;
+            if ((m_TableCreated == 0) && (m_ValuesInserted == 0))
+            {
+                m_TableSelected = 0;
+                m_Result = m_TableSelected;
+                m_Message = "Table selected";
+                m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                return m_QueryResultObj;
+            }
+            else
+            {
+                m_Result = m_TableSelected;
+                m_Message = "Table cannot be selected";
+                m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                return m_QueryResultObj;
+
+            }
+        }
+        /// <summary>
+        /// Mock function to check that queries are executed in proper sequence
+        /// Check the grammer of the query and allow operations accordingly.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public QueryResult ExecQuery(string query, string token)
+        {
+            try
+            {
+                if (query == "CREATE DB first_db")
+                {
+                    m_FirstDataBaseCreated = 0;
+                    m_Result = m_FirstDataBaseCreated;
+                    m_Message = "Database created";
+                    m_QueryResultObj = new QueryResult(m_Result, m_Message);
+                    return m_QueryResultObj;
+                }
+                else if (query == "CREATE TABLE first_db.test_table (PRIMARY KEY prim INT, name VARCHAR(32))")
+                {
+                    return CreateTable();
+                }
+                else if (query == "INSERT INTO first_db.test_table (name) VALUES 'user1'")
+                {
+                    return InsertIntoTable();
+                }
+                else if (query == "INSERT INTO first_db.test_table (name) VALUES 'user2")
+                {
+                    return InsertIntoTable();
+
+                }
+                else if (query == "INSERT INTO first_db.test_table (name) VALUES 'user3'")
+                {
+                    return InsertIntoTable();
+
+                }
+                else if (query == @"SELECT * FROM first_db.test_table")
+                {
+                    return SelectFromTable();
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Function to get the result after execution of the query 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="startLine"></param>
+        /// <param name="numberOfLines"></param>
+        /// <param name="token"></param>
+        /// <returns> Result of the execution of the query </returns>
+        public QueryResult GetResult(string id, int startLine, int numberOfLines, string token)
+        {
+            int m_Id = 1;
+            string m_Result = string.Empty;
+
+            return new QueryResult(m_Id, m_Result);
+        }
+
+        /// <summary>
+        /// This function will be used to release the table object at server for garbage collection. 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="token"></param>
+        /// <returns> A QueryResult object which describes info related to table  </returns>
+        public QueryResult Release(string id, string token)
+        {
+            int m_Id = 1;
+            string m_Result = string.Empty;
+            QueryResult m_QueryResultObj = new QueryResult(m_Id, m_Result);
+            return m_QueryResultObj;
+        }
+    }
+}

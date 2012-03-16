@@ -1,0 +1,55 @@
+﻿<Window x:Class="edu.syr.cse784.eskimodb.ClientGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EskimoDB ClientGUI" Width="640" Height="480" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid x:Name="LayoutRoot">
+        <Grid  Margin="9,12,12,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="109*" />
+                <RowDefinition Height="276*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225*" />
+                <ColumnDefinition Width="384*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="EskimoDB" Height="38" Margin="26,0,244,35" VerticalAlignment="Bottom" FontFamily="Segoe UI" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Width="113" Grid.Column="1" />
+            <Label Content="Username :" Height="33" Margin="0,103,12,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="16" HorizontalAlignment="Right" Width="92" Grid.RowSpan="2" />
+            <Label Content="Password : " Margin="0,47,3,0" FontFamily="Segoe UI" FontSize="16" HorizontalAlignment="Right" Width="100"  Height="33" VerticalAlignment="Top" Grid.Row="1" />
+            <PasswordBox Margin="23,47,66,0" Name="m_txtPassWord" HorizontalAlignment="Center" Width="288" Height="29" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" TabIndex="2" />
+            <TextBox Margin="23,105,66,0" Name="m_txtUserName" TextWrapping="Wrap" HorizontalAlignment="Center" Width="288" Grid.Column="1" Height="30" VerticalAlignment="Top" TabIndex="1" Grid.RowSpan="2" />
+            <Button Content="Sign in" Name="m_btnLogIn" Height="30" Margin="22,234,232,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="122" Grid.Column="1" Grid.Row="1" PreviewMouseLeftButtonDown="m_btnLogIn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="m_btnLogIn_PreviewMouseLeftButtonUp" TabIndex="3" Foreground="White">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border"  BorderThickness="2" Background="#4673b4" BorderBrush="White">
+                            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#5E9AF0" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#5E9AF0" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#4673b4" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Label Content="Root Server URL :" Name="m_LblRootServer"  FontFamily="Segoe UI" FontSize="16" Height="33" HorizontalAlignment="Right" Margin="0,134,13,0" VerticalAlignment="Top" Width="171" Grid.Row="1" />
+            <TextBox  Height="30" Text="http://localhost:8080/root" HorizontalAlignment="Center" Margin="23,137,66,0"  Name="m_TxtRootURL" TabIndex="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Grid.Column="1" Grid.Row="1" />
+            <Label Content="Auth Server URL :" Name="m_LblAuthServer"  FontFamily="Segoe UI" FontSize="16" Height="33" HorizontalAlignment="Right" Margin="0,187,13,0" VerticalAlignment="Top" Width="171" Grid.Row="1" />
+            <TextBox Height="30" Text="http://localhost:8080/IComm" HorizontalAlignment="Center" Margin="22,187,66,0" Name="m_TxtAuthURL" TabIndex="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Grid.Column="1" Grid.Row="1" />
+            <CheckBox Content="View Config Details" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" Grid.Column="1" Grid.Row="1" Height="19" HorizontalAlignment="Left" Margin="24,89,0,0" Name="checkBox1" VerticalAlignment="Top" Width="168" />
+        </Grid>
+        <StatusBar Height="24" HorizontalAlignment="Stretch" Margin="2,0,0,0" Name="statusBar1" VerticalAlignment="Bottom">
+            <StackPanel>
+                <TextBlock Height="18" Margin="26,0,0,4" Name="textBlock1" Text="Eskimo DB" Width="81" />
+            </StackPanel>
+        </StatusBar>
+    </Grid>
+</Window>

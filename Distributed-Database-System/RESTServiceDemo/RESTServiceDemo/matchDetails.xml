@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Matches counter="17">
+  <Match id="3">
+    <Home>Chicago Bulls</Home>
+    <Away>Washington Wizards</Away>
+    <Score>113:95</Score>
+  </Match>
+  <Match id="4">
+    <Home>Indiana Pacers</Home>
+    <Away>Philadelphia 76ers</Away>
+    <Score>85:86</Score>
+  </Match>
+  <Match id="5">
+    <Home>Charlotte Bobcats</Home>
+    <Away>Huston Rockets</Away>
+    <Score>100:110</Score>
+  </Match>
+  <Match id="8">
+    <Home>Oklahoma City Thunders </Home>
+    <Away>Dallas Mavericks</Away>
+    <Score>125:116</Score>
+  </Match>
+  <Match id="10">
+    <Home>ab</Home>
+    <Away>cd</Away>
+    <Score>11:12</Score>
+  </Match>
+  <Match id="15">
+    <Home></Home>
+    <Away></Away>
+    <Score></Score>
+  </Match>
+  <Match id="16">
+    <Home></Home>
+    <Away></Away>
+    <Score>100</Score>
+  </Match>
+  <Match id="17">
+    <Home>bulls</Home>
+    <Away>giants</Away>
+    <Score>100:99</Score>
+  </Match>
+</Matches>

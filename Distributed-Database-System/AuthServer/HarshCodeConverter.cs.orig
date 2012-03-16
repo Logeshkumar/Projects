@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Linq;
+using System.Text;
+
+namespace edu.syr.cse784.eskimodb.authserver
+{
+    class HarshCodeConverter
+    {
+        //The HarshCode Convert Function
+        public string Convert(string Password)
+        {
+            UnicodeEncoding ue = new UnicodeEncoding();
+            string harshCode = null;
+            byte[] hashValue;
+            byte[] message = ue.GetBytes(Password);
+
+            SHA256Managed hashString = new SHA256Managed();
+
+            hashValue = hashString.ComputeHash(message);
+
+            foreach (byte x in hashValue)
+                harshCode += String.Format("{0:x2}", x);
+
+            return harshCode;
+        }
+
+#if(TEST_HarshCode)
+        [STAThread]
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Harsh Code Converter Demo");
+            Console.WriteLine("Please Enter a Password!");
+            string TestString = Console.ReadLine();
+            HarshCodeConverter Testcase = new HarshCodeConverter();
+            TestString = Testcase.Convert(TestString);
+            Console.WriteLine("The Converted Code is :");
+            Console.WriteLine(TestString);
+        }
+#endif
+
+    }
+}

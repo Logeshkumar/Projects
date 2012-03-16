@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8C0FFBE-1E35-4CBA-A43C-08B3365AFD73}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>edu.syr.cse784.eskimodb.rootserver</RootNamespace>
+    <AssemblyName>RootServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TESTMAIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>edu.syr.cse784.eskimodb.rootserver.Test.TestMain</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime">
+      <HintPath>..\Lib\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\Lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Utility">
+      <HintPath>..\Lib\Antlr3.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="ITestInterface">
+      <HintPath>.\ITestInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="NCover">
+      <HintPath>..\EskimoDbSharedObjs\Library\NCover.dll</HintPath>
+    </Reference>
+    <Reference Include="StringTemplate">
+      <HintPath>..\Lib\StringTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlockingQueue.cs" />
+    <Compile Include="ClientMap.cs" />
+    <Compile Include="MockAuthServer.cs" />
+    <Compile Include="MockTableServer.cs" />
+    <Compile Include="QParser.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryLexer.cs" />
+    <Compile Include="QueryParser.cs" />
+    <Compile Include="QueryParserException.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="QueryProcessor.cs" />
+    <Compile Include="RequestHandler.cs" />
+    <Compile Include="RequestQueue.cs" />
+    <Compile Include="RootForClient.cs" />
+    <Compile Include="RootServer.cs" />
+    <Compile Include="RootServerHost.cs" />
+    <Compile Include="Statement.cs" />
+    <Compile Include="TableProxy.cs" />
+    <Compile Include="TableTracker.cs" />
+    <Compile Include="Test\MockTableServerTest.cs" />
+    <Compile Include="Test\ParserTest.cs" />
+    <Compile Include="Test\TestMain.cs" />
+    <Compile Include="TokenProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EskimoDbSharedObjs\EskimoDbSharedObjs.csproj">
+      <Project>{B06E5757-5FF9-40C9-9ED2-6274FFF1E428}</Project>
+      <Name>EskimoDbSharedObjs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

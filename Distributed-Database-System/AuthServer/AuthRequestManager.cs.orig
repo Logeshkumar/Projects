@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace edu.syr.cse784.eskimodb.authserver
+{
+    class AuthRequestManager
+    {
+        enum RequestType {Validate, CreateUser, Authenticate, TsAdmin};
+        private class Request
+        {
+            public string m_Username;
+            public string m_Password;
+            public string m_Token;
+            enum RequestType m_RequestType;
+        }
+
+        public void CreateAuthManager()
+        {
+            AuthManager am = new AuthManager();
+            int ID = m_AuthManagerList.Count;
+            AuthManagerMoniterThread ammt = new AuthManagerMoniterThread(ID, am, m_RequestQueue);
+            m_AuthManagerList.Add(am);
+            m_AuthManagerMoniterThreadList.Add(ammt);
+            Thread td = new Thread(new ThreadStart(ammt.proc));
+            m_MoniterThreadList.Add(td);
+            td.Start();
+        }
+
+        public void DistributeRequest()
+        {
+        }
+        public void DestroyAuthManager()
+        {
+        }
+
+<<<<<<< local
+        private BlockingQueue<Request> m_RequestQueue;
+        private List<AuthManager> m_AuthManagerList;
+        private List<AuthManagerMoniterThread> m_AuthManagerMoniterThreadList;
+        private List<Thread> m_MoniterThreadList;
+
+        public AuthRequestManager()
+        {
+            m_RequestQueue = new BlockingQueue<Request>();
+            m_AuthManagerList = new List<AuthManager>();
+            m_AuthManagerMoniterThreadList = new List<AuthManagerMoniterThread>();
+            m_MoniterThreadList = new List<Thread>();
+        }
+        private class AuthManagerMoniterThread
+        {
+            private BlockingQueue<Request> m_RequestQueue;
+            private AuthManager m_AuthManager;
+            private int m_ID;
+            public AuthManagerMoniterThread(int ID, BlockingQueue<Request> bQ, AuthManager authManager)
+            {
+                m_RequestQueue = bQ;
+                m_AuthManager = authManager;
+            }
+            public void proc()
+            {
+                Request req;
+                while (true)
+                {
+                    if (m_RequestQueue.size() > 0)
+                    {
+                        req = m_RequestQueue.deQ();
+                        // Process the requests here
+                    }
+                    Thread.Sleep(10);
+                }
+            }
+        }
+=======
+        private List<bool> AuthManagerLock;
+>>>>>>> other
+    }
+}

@@ -1,0 +1,17 @@
+<DIConfig>
+  <Imports>
+  </Imports>
+  
+  <Filters>
+	<Filter type="include" key="type" value="ITest" />
+	<Filter type="include" key="namespace" value="edu.syr.cse784.eskimodb" />
+  </Filters>
+  
+  <Libs>
+	<Lib dir="." pattern="*.dll,*.exe" />
+  </Libs>
+  
+  <Mappings>
+	<Mapping name="my example" type="edu.syr.cse784.eskimodb.usedidemo.AExample" />
+  </Mappings>
+</DIConfig>

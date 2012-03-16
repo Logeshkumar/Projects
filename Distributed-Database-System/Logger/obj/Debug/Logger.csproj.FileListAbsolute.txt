@@ -1,0 +1,5 @@
+C:\Users\loki\Desktop\eskimodb\Logger\bin\Debug\Logger.dll
+C:\Users\loki\Desktop\eskimodb\Logger\bin\Debug\Logger.pdb
+C:\Users\loki\Desktop\eskimodb\Logger\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\Logger\obj\Debug\Logger.dll
+C:\Users\loki\Desktop\eskimodb\Logger\obj\Debug\Logger.pdb

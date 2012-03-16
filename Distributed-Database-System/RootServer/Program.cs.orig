@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Antlr.Runtime;
+
+namespace RootServer
+{
+    class Program
+    {
+    public void ValidateQuery(String m_Query)
+    {
+      ANTLRStringStream string_stream = new ANTLRStringStream(m_Query);
+      QueryLexer lexer = new QueryLexer(string_stream);
+      CommonTokenStream tokens = new CommonTokenStream(lexer);
+      QueryParser parser = new QueryParser(tokens);
+
+      QueryParser.statement_return obj = parser.statement();
+      Statement StatementObject = obj.ret;
+      CreateDB name = new CreateDB();
+      Statement h = name;
+      
+    }
+
+<<<<<<< local
+
+      //=========== MockAuthServer  test stub============
+      /*
+      MockAuthServer MAS = new MockAuthServer();
+      DateTime exptime= new DateTime();
+
+      string token = "xxxx";
+
+      if (MAS.Validate(token,out exptime))
+      {
+        Console.WriteLine("success~ save the token and expire time");
+        Console.WriteLine("exp time: " + exptime.ToString());
+      }
+      else
+      {
+        Console.WriteLine("fail, reject client");      
+      }
+      */ 
+      //=================================================
+      
+=======
+        static void Main(string[] args)
+        {
+          List<Database> list = new List<Database>();
+          DatabaseTable d = new DatabaseTable("Status", "123.23.23.2");
+          Database database = new Database("Database");
+          database.PopulateTable(d);
+          list.Add(database);
+          database.deleteTable(d);
+          list.Count();
+        }
+>>>>>>> other
+    }
+}

@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace edu.syr.cse784.eskimodb.authserver
+{
+    class TestAuthServer
+    {
+        public TestAuthServer()
+        {
+        }
+        public void Test()
+        {
+            ConsoleUserInterface consoleuserinterface = new ConsoleUserInterface();
+            string username = consoleuserinterface.Username;
+            string passwd = consoleuserinterface.Password;
+            string hashedPasswd = (new HarshCodeConverter()).Convert(passwd);
+            CredentialFile passwordfile = new CredentialFile();
+            //string salttag = .randomCrack();
+            //passwordfile.AddUser(username, hashedPasswd, salttag);
+            return;
+        }
+    }
+}

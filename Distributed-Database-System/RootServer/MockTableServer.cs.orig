@@ -1,0 +1,184 @@
+﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  MockTableServer.cs:            Responsible for testing RootServer functionalities for TableServer   //
+//  Language:                      C#, .Net Framework 4.0      				                                  //
+//  Platform:                      Windows 7								                                            //
+//  Application:                   EskimoDB - RootServer                                                //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+ * Module Operations:
+ * =================
+ * This module is responsible for receiving the necessary data for queries in EskimoDB and in turn
+ * returns a output( TableResponse i.e. basically Success or Failure). This module implements ITableServer
+ * /
+/*
+Maintainence History:
+=====================
+ver 1.0 : 03 October 2011
+- first release
+*/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Collections;
+using edu.syr.cse784.eskimodb.sharedobjs;
+
+namespace edu.syr.cse784.eskimodb.rootserver
+{
+  class MockTableServer : ITableServer
+  {
+    public TableResponse CreateDatabase(string database)
+    {
+      
+      if (database == "databaseName")
+        return new TableResponse(true,"success","10");
+      else
+        return new TableResponse(false, "failure", "11");
+    }
+    public TableResponse CreateTable(string databaseName, string tableName, Dictionary<string,bool> columnData, List<string> columnType)
+    {
+      if (databaseName == "database1" && tableName == "table1" && columnData.ContainsValue(false) && columnData.ContainsKey("key1") && columnType[0] == "VARCHAR(255)")
+      {
+        return new TableResponse(true, "success", "12");
+      }
+      else
+        return new TableResponse(false, "failure", "13"); 
+    }
+    public TableResponse DeleteTable(string databaseName, string tableName)
+    {
+      if(databaseName == "databaseName" && tableName =="tablename1")
+        return new TableResponse(true, "success", "14");
+      else
+        return new TableResponse(false, "failure", "15");
+    }
+
+    public TableResponse AddColumn(string databaseName, string tableName, bool uniqueKey, string columnName, string columnType)
+    {
+      if (databaseName == "databasename" && tableName == "tablename1" && uniqueKey == false  && columnName == "key1" && columnType == "INT")
+        return new TableResponse(true, "success", "16");
+      else
+        return new TableResponse(false, "failure", "17");
+    }
+    public TableResponse DeleteColumn(string databaseName, string tableName, string columnName)
+    {
+      if (databaseName == "databasename" && tableName == "tablename1" && columnName == "columnname1")
+        return new TableResponse(true, "success", "18");
+      else
+        return new TableResponse(false, "failure", "19");
+    }
+    public TableResponse RenameTable(string databaseName, string oldTableName, string newTableName)
+    {
+      if (databaseName == "databasename" && oldTableName == "tab1" && newTableName == "tab2")
+        return new TableResponse(true, "success", "20");
+      else
+        return new TableResponse(false, "failure", "21");
+    }
+    public TableResponse RenameColumn(string databaseName, string tableName, string oldColumnName, string newColumnName)
+    {
+      if (databaseName == "databasename" && tableName == "tab1" && oldColumnName == "col1" && newColumnName == "col2")
+        return new TableResponse(true, "success", "22");
+      else
+        return new TableResponse(false, "failure", "23");
+    }
+    public TableResponse EmptyTable(string databaseName, string tableName)
+    {
+      if (databaseName == "databasename" && tableName == "tablename1")
+        return new TableResponse(true, "success", "24");
+      else
+        return new TableResponse(false, "failure", "25");
+    }
+    public TableResponse DeleteDatabase(string databaseName)
+    {
+      if (databaseName == "databasename1")
+      {
+        return new TableResponse(true, "success", "26");
+      }
+      else
+        return new TableResponse(false, "failure", "27");
+    }
+
+    public TableResponse InsertRow(string databasename, string tablename, List<string> columnName, ArrayList columnValue)
+    {
+      int i = 1;
+      int j = 1;
+      if(databasename == "databasename" && tablename == "c.tab1")
+      {
+        foreach(string column in columnName)
+        {
+          if (column == "col" + i)
+          {
+            i++;
+          }
+          else
+            return new TableResponse(false, "failure", "28");
+        }
+        foreach(string colVal in columnValue)
+        {
+          if(colVal == "val" + j)
+          {
+            j++;
+          }
+          else
+            return new TableResponse(false, "failure", "29");
+        }
+        return new TableResponse(true, "success", "30");
+      }
+      else
+        return new TableResponse(false, "failure", "31");
+
+    }
+
+    public TableResponse SelectRow(string database, string tableName, List<string> selectColumns, string countColumn,
+
+                            List<TernaryAssociative<string, string, string>> whereList, List<KeyValuePair<string, string>> orderByColumns,
+
+                            int limitStart, int limitCount)
+    {
+      if (database == "databasename" && tableName == "infotable" && selectColumns.Capacity == 0 && countColumn == null &&
+        whereList[0].First == "col1" && whereList[0].Second == "<=" && whereList[0].Third == "47" && orderByColumns[0].Key == "col2" &&
+        orderByColumns[0].Value == "ASC" && limitStart == 1 && limitCount == 11)
+      {
+        return new TableResponse(true, "success", "32");
+      }
+      else
+      {
+        return new TableResponse(false, "failure", "33");
+      }
+    }
+
+    public TableResponse UpdateRow(string databaseName, string tableName, List<KeyValuePair<string, string>> setList, List<TernaryAssociative<string, string, string>> whereList)
+    {
+      if (databaseName == "databasename" && tableName == "infotable" && setList[0].Key == "col1" && setList[0].Value == "test" &&
+        whereList[0].First == "col1" && whereList[0].Second == "<=" && whereList[0].Third == "47")
+      {
+        return new TableResponse(true, "success", "34");
+      }
+      else
+      {
+        return new TableResponse(false, "failure", "35");
+      }
+    }
+
+    public TableResponse DeleteRows(string databaseName, string tableName, List<TernaryAssociative<string, string, string>> whereList)
+    {
+      if (databaseName == "databasename" && tableName == "infotable" && whereList[0].First == "col1" && whereList[0].Second == "<=" && whereList[0].Third == "47")
+      {
+        return new TableResponse(true, "success", "36");
+      }
+      else
+      {
+        return new TableResponse(false, "failure", "37");
+      }    
+    }
+
+    /*
+     * @returns the DB structure.
+     */
+    public Dictionary<string, List<string>> GetDBInfo()
+    {
+      return new Dictionary<string, List<string>>();
+    }
+
+  }
+}

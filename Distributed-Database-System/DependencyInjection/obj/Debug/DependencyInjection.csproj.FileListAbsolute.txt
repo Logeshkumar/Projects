@@ -1,0 +1,5 @@
+C:\Users\loki\Desktop\eskimodb\DependencyInjection\bin\Debug\DependencyInjection.dll
+C:\Users\loki\Desktop\eskimodb\DependencyInjection\bin\Debug\DependencyInjection.pdb
+C:\Users\loki\Desktop\eskimodb\DependencyInjection\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\DependencyInjection\obj\Debug\DependencyInjection.dll
+C:\Users\loki\Desktop\eskimodb\DependencyInjection\obj\Debug\DependencyInjection.pdb

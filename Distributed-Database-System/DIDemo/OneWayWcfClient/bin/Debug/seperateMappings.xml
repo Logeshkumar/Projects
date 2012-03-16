@@ -1,0 +1,5 @@
+<Mappings>
+		  <Mapping name="myTest" type="DIDemo.ATest"></Mapping>
+		  <!--<Mapping name="myService" type="DIDemo.MockedService"></Mapping>-->
+		  <Mapping name="myService" type="DIDemo.IOneWayService" wcf="true"></Mapping>
+</Mappings>

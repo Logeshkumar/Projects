@@ -1,0 +1,6 @@
+C:\Users\loki\Desktop\eskimodb\ITestInterface\DemoTest\DemoTest\bin\Debug\DemoTest.dll
+C:\Users\loki\Desktop\eskimodb\ITestInterface\DemoTest\DemoTest\bin\Debug\DemoTest.pdb
+C:\Users\loki\Desktop\eskimodb\ITestInterface\DemoTest\DemoTest\bin\Debug\ITestInterface.dll
+C:\Users\loki\Desktop\eskimodb\ITestInterface\DemoTest\DemoTest\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\ITestInterface\DemoTest\DemoTest\obj\x86\Debug\DemoTest.dll
+C:\Users\loki\Desktop\eskimodb\ITestInterface\DemoTest\DemoTest\obj\x86\Debug\DemoTest.pdb

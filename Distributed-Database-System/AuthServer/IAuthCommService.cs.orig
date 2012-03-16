@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Threading;
+using System.Text;
+
+namespace edu.syr.cse784.eskimodb.authserver
+{
+     [ServiceContract]
+    public interface IAuthCommService
+    {
+         [OperationContract(IsOneWay = true)]
+         Message Validate(string token);
+
+        // [OperationContract]
+         //void RetrieveMessage(Message msg);
+    }
+    
+    [DataContract]
+    public class Message 
+    {
+        [DataMember]
+        public string ExpTime{get;set;}
+
+        [DataMember]
+        public bool ValidOrNot { get; set; }
+    }
+}

@@ -1,0 +1,12 @@
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\ServiceHostCreator.exe
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\ServiceHostCreator.pdb
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\DependencyInjection.dll
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\Executor.exe
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\ITestInterface.dll
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\NCover.dll
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\DependencyInjection.pdb
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\Executor.pdb
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\bin\Debug\ITestInterface.pdb
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\obj\Debug\ServiceHostCreator.exe
+C:\Users\loki\Desktop\eskimodb\ServiceHostCreator\obj\Debug\ServiceHostCreator.pdb

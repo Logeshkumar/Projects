@@ -1,0 +1,20 @@
+<DIConfig>
+  <Imports>
+      <Import dir="\\libConfig" pattern="lib*.xml" />
+	  <Import dir="\\mappingConfig" pattern="mapping*.xml" />
+	  <Import path="seperateMappings.xml" />
+  </Imports>
+  
+  <Filters>
+	<Filter type="include" key="type" value="ITest" />
+	<Filter type="include" key="namespace" value="syr.edu.cse784.eskimodb" />
+  </Filters>
+  
+  <Libs>
+	<Lib dir="\\libs" pattern="*.dll,*.exe" />
+  </Libs>
+  
+  <Mappings>
+	<Mapping name="my test" type="DIDemo.ATest" />
+  </Mappings>
+</DIConfig>

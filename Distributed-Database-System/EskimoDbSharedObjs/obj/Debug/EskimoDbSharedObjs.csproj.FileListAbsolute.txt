@@ -1,0 +1,6 @@
+C:\Users\loki\Desktop\eskimodb\EskimoDbSharedObjs\bin\Debug\EskimoDbInterfaces.exe
+C:\Users\loki\Desktop\eskimodb\EskimoDbSharedObjs\bin\Debug\EskimoDbInterfaces.pdb
+C:\Users\loki\Desktop\eskimodb\EskimoDbSharedObjs\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\EskimoDbSharedObjs\obj\Debug\EskimoDbInterfaces.exe
+C:\Users\loki\Desktop\eskimodb\EskimoDbSharedObjs\obj\Debug\EskimoDbInterfaces.pdb
+C:\Users\loki\Desktop\eskimodb\EskimoDbSharedObjs\bin\Debug\NCover.dll

@@ -1,0 +1,12 @@
+C:\Users\loki\Desktop\eskimodb\Executor\Executor\bin\Debug\Executor.exe
+C:\Users\loki\Desktop\eskimodb\Executor\Executor\bin\Debug\Executor.pdb
+C:\Users\loki\Desktop\eskimodb\Executor\Executor\bin\Debug\NCover.dll
+C:\Users\loki\Desktop\eskimodb\Executor\Executor\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Desktop\eskimodb\Executor\Executor\obj\x86\Debug\Executor.exe
+C:\Users\loki\Desktop\eskimodb\Executor\Executor\obj\x86\Debug\Executor.pdb
+C:\d\studio\eskimodb\Executor\Executor\bin\Debug\Executor.exe
+C:\d\studio\eskimodb\Executor\Executor\bin\Debug\Executor.pdb
+C:\d\studio\eskimodb\Executor\Executor\bin\Debug\NCover.dll
+C:\d\studio\eskimodb\Executor\Executor\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\d\studio\eskimodb\Executor\Executor\obj\x86\Debug\Executor.exe
+C:\d\studio\eskimodb\Executor\Executor\obj\x86\Debug\Executor.pdb

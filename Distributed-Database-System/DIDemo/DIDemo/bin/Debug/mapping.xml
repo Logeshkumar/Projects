@@ -1,0 +1,4 @@
+<root>
+<class name="myTest" type="DIDemo.ATest"></class>
+<class name="myService" type="DIDemo.IService" wcf="true"></class>
+</root>

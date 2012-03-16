@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace edu.syr.cse784.eskimodb.authserver.test
+{
+  //test class for AuthManager
+    class AuthManagerTest
+    {
+        static void Main(string[] args) 
+        {
+            Console.WriteLine("Demo AuthManager");
+            Console.WriteLine("-----------------------------")
+
+            Console.WriteLine("Demo Constructor of AuthManager");
+            AuthManager authTest = new AuthManager();
+            AuthManager authTest1 = new AuthManager("userName1","11111111");
+
+            Console.WriteLine("Demo Register section of AuthManager");
+            string message;
+            authTest1.Register("userName2","1234567890",out message);
+            Console.WriteLine(message);
+
+            authTest.Register("userName3", "11",out message);
+            Console.WriteLine(message);
+
+            authTest.Register("userName4", "completely", out message);
+            Console.WriteLine(message);
+
+            authTest.Register("userName5", "abcdefghijklmnopqrstuvwxyx", out message);
+            Console.WriteLine(message);
+
+            Console.WriteLine("Demo the ");
+            string testToken;
+            authTest.LogIn("userName2", "1234567890", out testToken, out message);
+            Console.WriteLine(testToken);
+            Console.WriteLine(message);
+
+            DateTime expireTime;
+            authTest.TokenVerifier(testToken,out expireTime);
+            Console.WriteLine(expireTime);
+           
+            Console.WriteLine("End Demo");
+        }
+    }
+}

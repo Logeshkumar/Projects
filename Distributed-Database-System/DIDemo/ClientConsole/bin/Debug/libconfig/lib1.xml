@@ -1,0 +1,3 @@
+<Libs>
+  <Lib dir="." pattern="*.exe,*.dll" />
+</Libs>

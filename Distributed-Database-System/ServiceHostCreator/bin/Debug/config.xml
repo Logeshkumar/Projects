@@ -1,0 +1,18 @@
+<DIConfig>
+  <Imports>
+  </Imports>
+  
+  <Filters>
+	<Filter type="include" key="type" value="ITest" />
+	<Filter type="include" key="namespace" value="edu.syr.cse784.eskimodb" />
+  </Filters>
+  
+  <Libs>
+	<Lib dir="." pattern="*.dll,*.exe" />
+  </Libs>
+  
+  <Mappings>
+	<Mapping name="single test server" type="edu.syr.cse784.eskimodb.servicehostcreator.ITestService" wcf="true" />
+	<Mapping name="dual test server" type="edu.syr.cse784.eskimodb.servicehostcreator.IDualTestService" wcf="true" />
+  </Mappings>
+</DIConfig>

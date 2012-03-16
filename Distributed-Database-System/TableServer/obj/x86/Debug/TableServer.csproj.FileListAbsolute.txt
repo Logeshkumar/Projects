@@ -1,0 +1,10 @@
+C:\d\studio\eskimodb\TableServer\bin\Debug\TableServer.exe
+C:\d\studio\eskimodb\TableServer\bin\Debug\TableServer.pdb
+C:\d\studio\eskimodb\TableServer\bin\Debug\EskimoDbInterfaces.exe
+C:\d\studio\eskimodb\TableServer\bin\Debug\ITestInterface.dll
+C:\d\studio\eskimodb\TableServer\bin\Debug\NCover.dll
+C:\d\studio\eskimodb\TableServer\bin\Debug\EskimoDbInterfaces.pdb
+C:\d\studio\eskimodb\TableServer\bin\Debug\ITestInterface.pdb
+C:\d\studio\eskimodb\TableServer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\d\studio\eskimodb\TableServer\obj\x86\Debug\TableServer.exe
+C:\d\studio\eskimodb\TableServer\obj\x86\Debug\TableServer.pdb

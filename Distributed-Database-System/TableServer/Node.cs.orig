@@ -1,0 +1,1076 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using edu.syr.cse784.eskimodb.sharedobjs;
+using System.Collections;
+using System.Xml.Linq;
+
+using edu.syr.eskimodb.tableserver.Test;
+
+namespace edu.syr.eskimodb.tableserver
+{
+  public class TableManager : ITableServer
+  {
+    private static string activeDir = "C:\\Temp\\";
+
+    public TableManager()
+    {
+      if (!File.Exists(activeDir))
+      {//create folder
+        Directory.CreateDirectory(activeDir);
+      }
+    }
+
+    //create Database
+    public TableResponse CreateDatabase(string databaseName)
+    {
+      // Specify a "currently active folder"
+      //string activeDir = @"C:\\Temp\\";
+      //Create a new subfolder under the current active folder
+      try
+      {
+        string newPath = System.IO.Path.Combine(activeDir, databaseName);
+        // Create the subfolder
+        if (Directory.Exists(newPath))
+        {
+          return new TableResponse(true, "Database exist already", "Database present");
+        }
+        System.IO.Directory.CreateDirectory(newPath);
+        return new TableResponse(true, "Database Created Successfully", "Database created");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: create Table error", "Table Not Created");
+      }
+    }
+
+    //delete database 
+    public TableResponse DeleteDatabase(string databaseName)
+    {
+      //delete the particular sub folder in the path
+      //string filename = "C:\\Temp\\" + databaseName;
+      try
+      {
+<<<<<<< local
+        string fileName = activeDir + databaseName;
+        System.IO.Directory.Delete(fileName, true);
+        return new TableResponse(true, "Folder Deleted Successfully", "DeleteDatabase");
+=======
+        string filename = activeDir + databaseName;
+        System.IO.Directory.Delete(filename, true);
+        return new TableResponse(true, "Folder Deleted Successfully", "Database Deleted");
+>>>>>>> other
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: create Table error", "Database not deleted");
+      }
+    }
+
+    //column key type: string : "int" , "float", "VarChar(10)";
+    public TableResponse CreateTable(string databaseName, string tableName, Dictionary<string, bool> columnName, List<string> columnType)
+    {
+      try
+      {
+        // Specify a "currently active folder"
+        string activeDir_ = activeDir + databaseName + "\\";
+        string newPath = System.IO.Path.Combine(activeDir_, tableName);
+        if (Directory.Exists(newPath))
+        { return new TableResponse(false, "Table exist already", "TableResponse");}
+        // Create the subfolder
+        System.IO.Directory.CreateDirectory(newPath);
+        //generate the corresponding PK files under the Folder Names: File Name= tableName_columnName.dat
+        int dicIndex = 0;
+        foreach (var i in columnName)
+        {
+          if (i.Value == true)
+          {
+            string path = newPath + "\\" + i.Key + ".dat";
+            header h = new header();
+            h.GeneratePkFile(path, columnType[dicIndex], 32, -1, 0);
+          }
+          dicIndex++;
+        }
+        //generate Row Table file 
+        string rowTbPath = newPath + "\\row.dat";
+        header rowTbHeader = new header();
+        rowTbHeader.GenerateRowFile(rowTbPath, columnType, columnName);
+        //generate metadata XML file 
+        string metaPath = newPath + "\\" + tableName;
+        header.MetaGenerator(metaPath, columnType, columnName);
+
+        return new TableResponse(true, "Table Created Successfully", "Table created");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: create Table error", "Table not created");
+      }
+    }
+
+    //move contents of one table folder into another folder with new table name
+    public TableResponse RenameTable(string databaseName, string oldTableName, string newTableName)
+    {
+      try
+      {
+        string path = activeDir + databaseName + "\\" + oldTableName;
+        string newPath = activeDir + databaseName + "\\" + newTableName;
+        //check repeat new folder name
+<<<<<<< local
+        if (Directory.Exists(newPath))
+        { return new TableResponse(false, "The new Table name is exist already", "RenameTable"); }
+=======
+        if (Directory.Exists(newpath))
+        { return new TableResponse(true, "The new Table name exists already", "Table present"); }
+>>>>>>> other
+
+        //check original Table exist
+        if (Directory.Exists(path) == true)
+        { Directory.Move(path, newPath); }
+        else
+        { return new TableResponse(false, "The original Table is not exist", "Table not present"); }
+
+        return new TableResponse(true, "Rename Table Successful", "Table is renamed");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: Rename Table error", "Table cannot be renamed");
+      }
+    }
+
+    //delete the table
+    public TableResponse DeleteTable(string databaseName, string tableName)
+    {
+      try
+      {
+<<<<<<< local
+        string fileName = activeDir + databaseName + "\\" + tableName;
+        System.IO.Directory.Delete(fileName, true);
+        return new TableResponse(true, "Table Deleted Successfully", "DeleteTable");
+=======
+        string filename = activeDir + databasename + "\\" + tablename;
+        System.IO.Directory.Delete(filename, true);
+        return new TableResponse(true, "Table Deleted Successfully", "Table Deleted");
+>>>>>>> other
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: Delete Table error", "Table cannot be deleted");
+      }
+    }
+
+
+    //rename a column 
+    public TableResponse RenameColumn(string databaseName, string tableName, string oldColumnName, string newColumnName)
+    {
+      try
+      {
+        string path = activeDir + databaseName + "\\" + tableName;
+        string oldPkFilePath = Path.Combine(path, oldColumnName);
+        string newPkFilePath = Path.Combine(path, newColumnName);
+
+        //check Table name exist
+        if (!Directory.Exists(path))
+        { return new TableResponse(false, "Table name doesn't exist", "Table does not exist"); }
+
+        //======check Pk Binary files and try to rename======        
+        string[] files = Directory.GetFiles(path);
+        foreach (string file in files)
+        {
+          if (oldColumnName == file.Substring(file.LastIndexOf('\\') + 1).Split('.')[0].ToString())
+          { File.Move(oldPkFilePath + ".dat", newPkFilePath + ".dat"); }
+        }
+        //=========rename row table's column in XML meta file===========
+        if (header.RenameColumn(Path.Combine(path, tableName + ".xml"), oldColumnName, newColumnName))
+          return new TableResponse(true, "Column name rename successfully", "Rename Successful");
+        else
+          return new TableResponse(false, "Error: Column name in Row Table rename fail", "Column Rename Fail");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: Rename Column error", "Column cannot be renamed");
+      }
+    }
+
+    //empty a table
+    public TableResponse EmptyTable(string databaseName, string tableName)
+    {
+      //throw new NotImplementedException();
+      try
+      {
+        long PKtype;
+        long rootoffset;
+        long freechunk;
+        long padding;
+        // Specify a "currently active folder"
+        string activeDir_ = activeDir + databaseName + "\\";
+        //Create a new subfolder under the current active folder
+        string newPath = System.IO.Path.Combine(activeDir_, tableName);
+        // Create the subfolder
+        string[] files = Directory.GetFiles(newPath);
+        for (int i = 0; i < files.Count(); i++)
+        {
+          BinaryReader binReader = new BinaryReader(File.Open(files[i], FileMode.Open));
+          byte[] testArray = new byte[31];
+          int count = binReader.Read(testArray, 0, 31);
+
+
+          // Reset the position in the stream to zero.
+          binReader.BaseStream.Seek(0, SeekOrigin.Begin);
+          //create objects of BinaryReader and BinaryWriter classes
+          PKtype = binReader.ReadInt64();
+          rootoffset = binReader.ReadInt64();
+          freechunk = binReader.ReadInt64();
+          padding = binReader.ReadInt64();
+          binReader.Close();
+          System.IO.File.Delete(files[i]);
+          // System.IO.File.Create(files[i]);
+          using (BinaryWriter binWriter =
+               new BinaryWriter(File.Open(files[i], FileMode.OpenOrCreate)))
+          {
+
+            binWriter.Write(PKtype);
+            binWriter.Write(rootoffset);
+            binWriter.Write(freechunk);
+            binWriter.Write(padding);
+          }
+        }
+
+        return new TableResponse(true, "Table Emptied successfully", "Empty table");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error:Cannot Empty the table", "Table Not Empty");
+      }
+
+
+    }
+
+    //add a new column to row server
+    public TableResponse AddColumn(string databaseName, string tableName, bool uniqueKey, string columnName, string columnType)
+    {
+      try
+      {
+        string activeDir_ = activeDir + databaseName + "\\";
+        string newPath = System.IO.Path.Combine(activeDir_, tableName);
+        string pkPath = newPath + "\\" + columnName + ".dat";
+        string metaPath = newPath + "\\" + tableName + ".xml";
+        string rowPath = newPath + "\\row.dat";
+
+        // if new column is key, then generate new Pk binary file
+        if (uniqueKey)
+        {
+          header h = new header();
+          h.GeneratePkFile(pkPath, columnType, 32, -1, 0);
+        }
+        header.RowAddColumn(rowPath, metaPath, uniqueKey, columnName, columnType);
+
+        header.MetaAddColumn(metaPath, uniqueKey, columnName, columnType);
+
+        return new TableResponse(true, "add column successfully", "add column");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "Error: add column error", "add column failed");
+      }
+    }
+
+    //delete column in row server
+    public TableResponse DeleteColumn(string databaseName, string tableName, string columnName)
+    {
+      throw new NotImplementedException();
+    }
+
+    //insert a new row into table
+    public TableResponse InsertRow(string databaseName, string tableName, List<string> columnName, ArrayList columnValue)
+    {
+      try
+      {
+        //read the Table.xml to read currentRI, FreeLease and each type to know which index to add, if meets Pk column, add to Pk.dat
+        string activeDir_ = activeDir + databaseName + "\\";
+        string newPath = System.IO.Path.Combine(activeDir_, tableName);
+        string metaPath = newPath + "\\" + tableName + ".xml";
+        string rowPath = newPath + "\\row.dat";
+        Dictionary<string, string> metaDicNameType = new Dictionary<string, string>();
+        Dictionary<string, string> metaDicNamePk = new Dictionary<string, string>();
+        XDocument doc = XDocument.Load(metaPath);
+        var q = from x in
+                  doc.Descendants()
+                select x;
+        long freeLease = header.GetFreeLease(activeDir, databaseName, tableName);
+        //calculate order of columeName, extract xml column names in List      
+        foreach (var xele in q.Elements("col"))
+<<<<<<< local
+        { metaDicNameType.Add(xele.Element("name").Value, xele.Element("type").Value);}
+        foreach (var xele in q.Elements("col"))
+        { metaDicNamePk.Add(xele.Element("name").Value, xele.Element("PK").Value); }
+        if (metaDicNameType.Count != columnName.Count)
+        { return new TableResponse(false, "row item numbers doesn't match", "InsertRow");}
+=======
+        { MetaDicNameType.Add(xele.Element("name").Value, xele.Element("type").Value); }
+
+        if (MetaDicNameType.Count != columnName.Count)
+        { return new TableResponse(false, "row item numbers doesn't match", "InsertRow"); }
+
+>>>>>>> other
+        //Dictionary<string, InsertTypeValueObj> insertDicNameTypeVal = new Dictionary<string, InsertTypeValueObj>();
+        List<InsertTypeValueObj> listTypeValue = new List<InsertTypeValueObj>();
+        foreach (var dic in metaDicNameType)
+        {
+          for (int i = 0; i < columnName.Count; i++)
+          {
+            if (columnName[i] == dic.Key) // input to another dictionary 
+            {
+              InsertTypeValueObj itvObj = new InsertTypeValueObj(dic.Value, columnValue[i]);
+              listTypeValue.Add(itvObj);
+            }
+          }
+        }
+<<<<<<< local
+        header.AddRow(freeLease, rowPath, listTypeValue);
+        // recalculate new FreeLease position and write back to table.xml then write to pk.dat
+        header.MetaChangeFreeLease(metaPath, rowPath);
+        long newFreeLease = header.GetFreeLease(activeDir, databaseName, tableName);
+        header.AddPkRow(newFreeLease, metaPath, metaDicNamePk, listTypeValue);
+        return new TableResponse(true, "add row successfully", "InsertRow");
+=======
+        header.AddRow(FreeLease, RowPath, ListTypeValue);
+
+        // recalculate new FreeLease position and write back to table.xml
+        header.MetaChangeFreeLease(MetaPath, RowPath);
+        return new TableResponse(true, "add row successfully", "Row ");
+>>>>>>> other
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+        return new TableResponse(false, "add row fail", "Row not added");
+      }
+    }
+
+    public TableResponse SelectRow(string database, string tableName, List<string> selectColumns, string countColumn, List<TernaryAssociative<string, string, string>> whereList, List<KeyValuePair<string, string>> orderByColumns, int limitStart, int limitCount)
+    {
+      throw new NotImplementedException();
+    }
+
+
+    public Dictionary<string, List<string>> GetDBInfo()
+    {
+      throw new NotImplementedException();
+    }
+  }
+
+  public class InsertTypeValueObj
+  {
+    public InsertTypeValueObj(string colType, object colValue)
+    {
+      ColumnType = colType;
+      ColumnValue = colValue;
+    }
+    public string ColumnType
+    {
+      get;
+      set;
+    }
+    public object ColumnValue
+    {
+      get;
+      set;
+    }
+  }
+
+
+  public class header
+  {
+    // calculate input type size
+    public static long SizeCalculator(string inputType)
+    {
+      long size = 0;
+      long varcharSize = 0;
+
+      switch (inputType)
+      {
+        case "int":
+          size = 4;
+          break;
+        case "float":
+          size = 4;
+          break;
+        default:
+          string tem = inputType.Substring(8).Split(')')[0].ToString();
+          Int64.TryParse(tem, out varcharSize);
+          size = varcharSize;
+          //Console.WriteLine("padding:{0},{1}", m_PKType.Substring(8).Split(')')[0].ToString(),VarcharSizePadding);
+          break;
+      }
+      return size;
+    }
+
+    //get FreeLease
+    public static long GetFreeLease(string activeDir, string databaseName, string tableName)
+    {
+      //read the Table.xml to read currentRI, FreeLease and each type to know which index to add, if meets Pk column, add to Pk.dat
+      string activeDir_ = activeDir + databaseName + "\\";
+      string newPath = System.IO.Path.Combine(activeDir_, tableName);
+      string metaPath = newPath + "\\" + tableName + ".xml";
+      long freeLease = -1;
+      Dictionary<string, string> metaDicNameType = new Dictionary<string, string>();
+      XDocument doc = XDocument.Load(metaPath);
+      var q = from x in
+                doc.Descendants()
+              select x;
+      Int64.TryParse(q.Elements("FreeLease").First().Value, out freeLease);
+      return freeLease;
+    }
+
+    //get row table's column name's offset index
+    private static int GetRowColumnNameOffset(string filePath, string columnName)
+    {
+      BinaryReader binReader = new BinaryReader(File.Open(filePath, FileMode.Open));
+      binReader.BaseStream.Seek(16, SeekOrigin.Begin);
+      long rootOffset = binReader.ReadInt64();
+      long colNameNumber = (rootOffset - 33) / 10;
+      binReader.BaseStream.Seek(33, SeekOrigin.Begin);
+      int index = 0;
+      for (int i = 0; i < colNameNumber; i++)
+      {
+        char[] colName = binReader.ReadChars(10);
+        string colNameString = "";
+        foreach (char col in colName)
+        { colNameString += col.ToString(); }
+        //Console.WriteLine(ColNameString);
+        if (colNameString.Trim() == columnName)
+        { index = 33 + i * 10; }
+      }
+      binReader.Close();
+      return index;
+    }
+
+    //get column number in a Table
+    public static int GetColumnNumber(string metaPath)
+    {
+      XDocument doc = XDocument.Load(metaPath);
+      var q = from x in
+                doc.Descendants()
+              select x;
+      //calculate order of columeName, extract xml column names in List      
+      int typeIndex = 0;
+      foreach (var xele in q.Elements("col"))
+      {
+        typeIndex++;
+      }
+      return typeIndex;
+    }
+
+    //read row.dat row by row
+    public static List<InsertTypeValueObj> ReadRow(string rowPath, string metaPath)
+    { Dictionary<int, string> metaDicNoType = new Dictionary<int, string>();
+      List<InsertTypeValueObj> listTypeValue = new List<InsertTypeValueObj>();
+      XDocument doc = XDocument.Load(metaPath);
+      var q = from x in
+                doc.Descendants()
+              select x;
+      int typeIndex = 0;
+      foreach (var xele in q.Elements("col"))
+      {
+        metaDicNoType.Add(typeIndex, xele.Element("type").Value);
+        typeIndex++;
+      }
+      BinaryReader br = new BinaryReader(File.Open(rowPath, FileMode.Open));
+      int pos = 0;
+      int trackX = 0;
+      while (pos < (int)br.BaseStream.Length)
+      {
+        int typePt = trackX % typeIndex;
+        foreach (var meta in metaDicNoType)
+        {
+          if (typePt == meta.Key) // match type read that type
+          {
+            switch (meta.Value)
+            {
+              case "int":
+                listTypeValue.Add(new InsertTypeValueObj(meta.Value, br.ReadInt32()));
+                pos += sizeof(int);
+                trackX++;
+                break;
+              case "float":
+                listTypeValue.Add(new InsertTypeValueObj(meta.Value, br.ReadSingle()));
+                pos += sizeof(float);
+                trackX++;
+                break;
+              default:
+                long varcharSize = 0;
+                string varcharLength = meta.Value.Substring(8).Split(')')[0].ToString();
+                Int64.TryParse(varcharLength, out varcharSize);
+                listTypeValue.Add(new InsertTypeValueObj(meta.Value, br.ReadBytes((int)varcharSize)));
+                pos += (int)varcharSize;
+                trackX++;
+                break;
+            }
+          }
+        }
+      }
+      br.Close();
+      return listTypeValue;
+    }
+
+    //add a new row to row.dat
+    public static void AddRow(long freeLease, string rowPath, List<InsertTypeValueObj> listTypeValue)
+    {
+      long offset = freeLease;
+      long rowLength = 0;
+      using (Stream filestream = new FileStream(rowPath, FileMode.Open, FileAccess.Write, FileShare.None))
+      {
+        BinaryWriter writer = new BinaryWriter(filestream);
+        {
+          writer.BaseStream.Seek(offset, SeekOrigin.Begin);
+          foreach (var typeVal in listTypeValue)
+          {
+            rowLength += header.SizeCalculator(typeVal.ColumnType);
+            switch (typeVal.ColumnType)
+            {
+              case "int":
+                writer.Write((int)typeVal.ColumnValue);
+                break;
+              case "float":
+                writer.Write((float)typeVal.ColumnValue);
+                break;
+              default:
+                long varcharSize = 0;
+                string varcharLength = typeVal.ColumnType.Substring(8).Split(')')[0].ToString();
+                Int64.TryParse(varcharLength, out varcharSize);
+                string ColVal = (string)typeVal.ColumnValue;
+                int lengthOfColVal = ColVal.Length;
+                for (int i = 0; i < varcharSize - lengthOfColVal; i++)
+                { ColVal += " "; }
+                byte[] byteColVal = System.Text.Encoding.ASCII.GetBytes(ColVal);
+                writer.Write(byteColVal);
+                //Console.WriteLine("padding:{0},{1}", m_PKType.Substring(8).Split(')')[0].ToString(),VarcharSizePadding);
+                break;
+            }
+          }
+          writer.Close();
+        }
+        filestream.Close();
+      }
+    }
+
+    //add a new row to Pk.dat
+    public static void AddPkRow(long freeLease, string metaPath, Dictionary<string, string> dicNamePk, List<InsertTypeValueObj> listTypeValue)
+    { // calculate Row Index from meta, freeChunk / row length
+      long rowLength = 0;
+      long rowIndex = 0;
+      foreach (var typeVal in listTypeValue)
+      { rowLength += header.SizeCalculator(typeVal.ColumnType);}
+      rowIndex = freeLease / rowLength;      
+      int colIndex = 0;
+      foreach (var namePk in dicNamePk)
+      {
+        if (namePk.Value == "True") //add Pk file row
+        {// find that name Pk file and open it 
+          string rowPath = metaPath.Substring(0, metaPath.LastIndexOf("\\")) + "\\" + namePk.Key + ".dat";          
+          long pkIndex = GetNewPkNumber(rowPath, listTypeValue[colIndex].ColumnType);          
+          using (Stream filestream = new FileStream(rowPath, FileMode.Append, FileAccess.Write, FileShare.None))
+          {
+            BinaryWriter writer = new BinaryWriter(filestream);
+            {
+              switch (listTypeValue[colIndex].ColumnType)
+              {
+                case "int":
+                  writer.Write((int)listTypeValue[colIndex].ColumnValue);
+                  writer.Write(rowIndex);
+                  break;
+                case "float":
+                  writer.Write((float)listTypeValue[colIndex].ColumnValue);
+                  writer.Write(rowIndex);                  
+                  break;
+                default:
+                  long varcharSize = 0;
+                  string varcharLength = listTypeValue[colIndex].ColumnType.Substring(8).Split(')')[0].ToString();
+                  Int64.TryParse(varcharLength, out varcharSize);
+                  string ColVal = (string)listTypeValue[colIndex].ColumnValue;
+                  int lengthOfColVal = ColVal.Length;
+                  for (int i = 0; i < varcharSize - lengthOfColVal; i++)
+                  { ColVal += " "; }
+                  byte[] byteColVal = System.Text.Encoding.ASCII.GetBytes(ColVal);
+                  writer.Write(byteColVal);
+                  writer.Write(rowIndex);                                    
+                  break;
+              }
+            }
+            writer.Close();
+            filestream.Close();
+          }          
+        }
+        colIndex++;
+      }
+    }
+
+    //get Pk.dat new Pk Index
+    public static long GetNewPkNumber(string rowPath, string pkType)
+    {
+      long ret = 0;
+      using (BinaryReader b = new BinaryReader(File.Open(rowPath, FileMode.Open)))
+      {
+        long length = (long)b.BaseStream.Length;
+        long dataLength = length - 32;
+        switch (pkType)
+        {
+          case "int":
+            ret = dataLength / 12;
+            break;
+          case "float":
+            ret = dataLength / 12;
+            break;
+          default:
+            long varcharSize = 0;
+            string varcharLength = pkType.Substring(8).Split(')')[0].ToString();
+            Int64.TryParse(varcharLength, out varcharSize);
+            ret = dataLength / (8 + varcharSize);
+            break;
+        }
+        b.Close();
+      }
+      return ret + 1;
+    }
+
+    //update meta's FreeLease
+    public static void MetaChangeFreeLease(string metaPath, string rowPath)
+    {
+      long newFreeLease;
+      using (BinaryReader b = new BinaryReader(File.Open(rowPath, FileMode.Open)))
+      {
+        long length = (long)b.BaseStream.Length;
+        newFreeLease = length;
+        b.Close();
+      }
+
+      StringBuilder sb_source = new StringBuilder();
+      StreamReader sr = new StreamReader(metaPath);
+      String line;
+      while ((line = sr.ReadLine()) != null)
+      {
+        if (line.Trim().Contains("<FreeLease>"))
+        { sb_source.Append("<FreeLease>" + newFreeLease + "</FreeLease> \n"); }
+        else
+        { sb_source.Append(line).Append("\n"); }
+      }
+      sr.Close();
+
+      StreamWriter sw = new StreamWriter(metaPath);
+      sw.Write(sb_source.ToString()); //write a line of text to the file               
+      sw.Close();
+
+    }
+
+    //add a new column into meta 
+    public static void MetaAddColumn(string metaPath, bool uniqueKey, string columnName, string columnType)
+    {
+      StringBuilder sb_source = new StringBuilder();
+      StreamReader sr = new StreamReader(metaPath);
+      String line;
+      while ((line = sr.ReadLine()) != null)
+      {
+        if (line.Trim().Contains("<cols>"))
+        {
+          sb_source.Append("<cols>\n");
+          sb_source.Append("<col>\n");
+          sb_source.Append("<name>" + columnName + "</name>\n");
+          sb_source.Append("<PK>" + uniqueKey + "</PK>\n");
+          sb_source.Append("<type>" + columnType + "</type>\n");
+          sb_source.Append("<Length>" + SizeCalculator(columnType) + "</Length>\n");
+          sb_source.Append("</col>\n");
+        }
+        else
+        { sb_source.Append(line).Append("\n"); }
+      }
+      sr.Close();
+
+      StreamWriter sw = new StreamWriter(metaPath);
+      sw.Write(sb_source.ToString()); //write a line of text to the file               
+      sw.Close();
+      // renew the FreeLease in meta
+      string rowPath = metaPath.Substring(0, metaPath.LastIndexOf("\\")) + "\\row.dat";
+      MetaChangeFreeLease(metaPath, rowPath);
+    }
+
+    //add column in row.dat 
+<<<<<<< local
+    public static void RowAddColumn(string rowPath, string metaPath, bool uniqueKey, string columnName, string columnType)
+    { BinaryReader binReader = new BinaryReader(File.Open(rowPath, FileMode.Open));
+=======
+    public static void RowAddColumn(string RowPath, string MetaPath, bool uniqueKey, string columnName, string columnType)
+    {
+      BinaryReader binReader = new BinaryReader(File.Open(RowPath, FileMode.Open));
+>>>>>>> other
+      byte[] testArray = new byte[4];
+      int count = binReader.Read(testArray, 0, 4);
+      binReader.Close();
+      // if the row.dat is not empty, then we add new column 
+      if (count != 0)
+      { // extract all current data and insert new column in the front of row
+        List<InsertTypeValueObj> curAllRowData = ReadRow(rowPath, metaPath);
+        long curColNumber = GetColumnNumber(metaPath);
+        int trackX = 0;
+        //string tempRowPath = RowPath.Substring(0, RowPath.LastIndexOf("\\")) + "\\TempRow.bat";
+        using (Stream filestream = new FileStream(rowPath, FileMode.Create, FileAccess.Write, FileShare.None))
+        {
+          BinaryWriter writer = new BinaryWriter(filestream);
+          {
+            for (int i = 0; i < curAllRowData.Count; i++)
+            {
+              int typePt = trackX % ((int)curColNumber);
+              if (typePt == 0)  // add new column and original first column
+              {
+                switch (columnType)  // add new column
+                {
+                  case "int":
+                    int intVal = 0;
+                    writer.Write(intVal);
+                    break;
+                  case "float":
+                    float FlVal = 0f;
+                    writer.Write(FlVal);
+                    break;
+                  default:
+                    writer.Write(ByteColVal(columnType, ""));
+                    break;
+                }
+                switch (curAllRowData[i].ColumnType)
+                {
+                  case "int":
+                    writer.Write((int)curAllRowData[i].ColumnValue);
+                    break;
+                  case "float":
+                    writer.Write((float)curAllRowData[i].ColumnValue);
+                    break;
+                  default:
+                    writer.Write((byte[])curAllRowData[i].ColumnValue);
+                    break;
+                }
+              }
+              else  // add original rest column back
+              {
+                switch (curAllRowData[i].ColumnType)
+                {
+                  case "int":
+                    writer.Write((int)curAllRowData[i].ColumnValue);
+                    break;
+                  case "float":
+                    writer.Write((float)curAllRowData[i].ColumnValue);
+                    break;
+                  default:
+                    writer.Write((byte[])curAllRowData[i].ColumnValue);
+                    break;
+                }
+              }
+              trackX++;
+            }
+            writer.Close();
+          }
+          filestream.Close();
+        }
+      }
+    }
+
+    // get byte of string value 
+    public static byte[] ByteColVal(string columnType, string colVal)
+    {
+      long varcharSize = 0;
+      string varcharLength = columnType.Substring(8).Split(')')[0].ToString();
+      Int64.TryParse(varcharLength, out varcharSize);
+      int lengthOfColVal = colVal.Length;
+      for (int j = 0; j < varcharSize - lengthOfColVal; j++)
+      { colVal += " "; }
+      byte[] byteColVal = System.Text.Encoding.ASCII.GetBytes(colVal);
+
+      return byteColVal;
+    }
+
+    //generate metadata xml for a table
+    public static void MetaGenerator(string fileName, List<string> columnType, Dictionary<string, bool> columnName)
+    {
+      StringBuilder sb_Col = new StringBuilder();
+      int dicIndex = 0;
+      long totalLength = 0;
+      foreach (var i in columnName)
+      {
+        sb_Col.Append("<col>\n");
+        sb_Col.Append("<name>" + i.Key + "</name>\n");
+        sb_Col.Append("<PK>" + i.Value + "</PK>\n");
+        sb_Col.Append("<type>" + columnType[dicIndex] + "</type>\n");
+        sb_Col.Append("<Length>" + SizeCalculator(columnType[dicIndex]) + "</Length>\n");
+        sb_Col.Append("</col>\n");
+        totalLength += SizeCalculator(columnType[dicIndex]);
+        dicIndex++;
+      }
+      StringBuilder sb = new StringBuilder();
+      sb.Append("<?xml version=\"1.0\" ?>\n");
+      sb.Append("<table>\n");
+      sb.Append("<CurrentRI>0</CurrentRI> \n");
+      sb.Append("<FreeLease>0</FreeLease> \n");
+      sb.Append("<cols>\n");
+      sb.Append(sb_Col.ToString());
+      sb.Append("</cols>\n");
+      sb.Append("</table>\n");
+
+      StreamWriter sw = new StreamWriter(fileName + ".xml");
+      sw.Write(sb.ToString()); //write a line of text to the file               
+      sw.Close();
+
+    }
+
+    // rename row table column 
+    public static bool RenameColumn(string filePath, string oldName, string newName)
+    {
+      if (File.Exists(filePath))
+      {
+        try
+        {
+          StringBuilder sb_source = new StringBuilder();
+          StreamReader sr = new StreamReader(filePath);
+          String line;
+          while ((line = sr.ReadLine()) != null)
+          {
+            if (line.Trim().Contains("<name>" + oldName + "</name>"))
+            { sb_source.Append("<name>" + newName + "</name>").Append("\n"); }
+            else
+            { sb_source.Append(line).Append("\n"); }
+          }
+          sr.Close();
+
+          StreamWriter sw = new StreamWriter(filePath);
+          sw.Write(sb_source.ToString()); //write a line of text to the file               
+          sw.Close();
+          return true;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine("Error:" + e.Message.ToString());
+          return false;
+        }
+      }
+      else
+        return false;
+    }
+
+    //generate pk binary file with header 
+    public void GeneratePkFile(string fileName, string pkType, long rootOffset, long freeChunk, long padding)
+    {
+      // header h = new header(20, 10, -1, 24);
+      long keyTypeCode;
+      long varcharSizePadding = 0;
+
+      switch (pkType)
+      {
+        case "int":
+          keyTypeCode = 1;
+          break;
+        case "float":
+          keyTypeCode = 2;
+          break;
+        default:
+          keyTypeCode = 3;
+          string tem = pkType.Substring(8).Split(')')[0].ToString();
+          Int64.TryParse(tem, out varcharSizePadding);
+          //Console.WriteLine("padding:{0},{1}", m_PKType.Substring(8).Split(')')[0].ToString(),VarcharSizePadding);
+          break;
+      }
+      using (Stream filestream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+      {
+        BinaryWriter writer = new BinaryWriter(filestream);
+        {
+          //Add header
+          writer.Write(keyTypeCode);
+          writer.Write(rootOffset);
+          writer.Write(freeChunk);
+          writer.Write(varcharSizePadding);
+        }
+        filestream.Close();
+      }
+    }
+
+    //generate row table binary file
+    public void GenerateRowFile(string fileName, List<string> columnType, Dictionary<string, bool> columnName)
+    {
+      using (Stream filestream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+      {
+        filestream.Close();
+      }
+    }
+
+    //Test Cases
+    //  static void Main(string[] args)
+    //  {
+    //    try
+    //    {
+    //      //create object of TableManager Class
+    //      TableManager bm = new TableManager();
+    //      //test case for creating database
+    //      TableResponse response = bm.CreateDatabase("Status");
+    //      //populate the dictionary that holds the information about the Columns
+    //      Dictionary<string, bool> dictColumnName = new Dictionary<string, bool>();
+    //      dictColumnName.Add("ID", true);
+    //      dictColumnName.Add("Name", false);
+    //      dictColumnName.Add("Dept", true);
+
+    //      List<string> columnTypelist = new List<string>();
+    //      columnTypelist.Add("int");
+    //      columnTypelist.Add("float");
+    //      columnTypelist.Add("varchar(10)");
+
+    //      List<string> ListColumnName = new List<string>();
+    //      ListColumnName.Add("ID");
+    //      ListColumnName.Add("Name");
+    //      ListColumnName.Add("Dept");
+
+    //      ArrayList AlColVal = new ArrayList();
+    //      AlColVal.Add(11);
+    //      AlColVal.Add(11.1f);
+    //      AlColVal.Add("test");
+
+    //      //create the table
+    //      bm.CreateTable("Status", "NewStat", dictColumnName, columnTypelist);
+    //      bm.AddColumn("Status", "NewStat", false, "str", "varchar(8)");
+
+    //      //bm.RenameTable("Status", "NewStat", "NewStatNew");
+
+    //      //rename the column
+    //      //bm.RenameColumn("Status", "NewStat", "newID", "ID");
+    //      //bm.DeleteTable("Status", "NewStat");
+    //      //delete the table
+
+    //      //delete the database
+    //      //bm.DeleteDatabase("Status");
+
+    //      //empty the table
+    //      bm.EmptyTable("Status", "NewStat");
+
+    //      //bm.InsertRow("Status", "NewStat", ListColumnName, AlColVal);
+    //    }
+    //    catch (Exception e)
+    //    {
+    //      Console.WriteLine("Error:" + e.Message.ToString());
+    //    }
+    //  }
+    //}
+
+
+
+
+    static void Main(string[] args)
+    {
+
+      TableServerTest t = new TableServerTest();
+      t.Test();
+
+      List<string> m_msg = new List<string>();
+      m_msg = t.GetMessage();
+
+    
+    }
+    public class AddHeader
+    {
+
+      //reading a node in the file
+      public void ReadNode(string tablename, long primarykey, long rowindex, int color, long leftchild, long rightchild)
+      {
+        long freechunk = 0;
+        string fileName = "C:\\Temp\\" + tablename + ".dat";
+
+        //open and read the file
+        //append at the end of the file when FreeChunk=-1//
+
+
+<<<<<<< local
+        ArrayList AlColVal = new ArrayList();
+        AlColVal.Add(12);
+        AlColVal.Add(12.1f);
+        AlColVal.Add("test2");
+=======
+        if (File.Exists(fileName))
+        {
+          BinaryReader binReader =
+              new BinaryReader(File.Open(fileName, FileMode.Open));
+          try
+          {
+            // If the file is not empty,
+            // read the application settings.
+            // First read 4 bytes into a buffer to
+            // determine if the file is empty.
+            byte[] testArray = new byte[3];
+            int count = binReader.Read(testArray, 0, 3);
+>>>>>>> other
+
+<<<<<<< local
+        //bm.CreateTable("Status", "NewStat", dictColumnName, columnTypelist);
+        //bm.AddColumn("Status", "NewStat", false, "str", "varchar(8)");
+        //bm.RenameTable("Status", "NewStat", "NewStatNew");
+        //bm.RenameColumn("Status", "NewStat", "newID", "ID");
+        //bm.DeleteTable("Status", "NewStat");
+        //bm.DeleteDatabase("Status");
+        //bm.EmptyTable("Status", "NewStatNew");
+=======
+            if (count != 0)
+            {
+              // Reset the position in the stream to zero.
+              binReader.BaseStream.Seek(0, SeekOrigin.Begin);
+>>>>>>> other
+
+<<<<<<< local
+        bm.InsertRow("Status", "NewStat", ListColumnName, AlColVal);
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Error:" + e.Message.ToString());
+      }
+    }
+  }
+=======
+              //create objects of BinaryReader and BinaryWriter classes
+              long PKtype = binReader.ReadInt64();
+              long rootoffset = binReader.ReadInt64();
+              freechunk = binReader.ReadInt64();
+              long padding = binReader.ReadInt64();
+            }
+          }
+          catch (EndOfStreamException e)
+          {
+            Console.WriteLine("{0} caught and ignored. " +
+                "Using default values.", e.GetType().Name);
+          }
+          binReader.Close();
+>>>>>>> other
+
+        }
+
+        if (freechunk == -1)
+        {
+          AppendData(tablename, primarykey, rowindex, color, leftchild, rightchild);
+        }
+        else
+        {
+          //read the bytes stored in freechunk variable and append at that position into the file
+        }
+
+      }
+
+      private void AppendData(string tablename, long primarykey, long rowindex, int color, long leftchild, long rightchild)
+      {
+
+      }
+
+    }
+
+  }
+}
+

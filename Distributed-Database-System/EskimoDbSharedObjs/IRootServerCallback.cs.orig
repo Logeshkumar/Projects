@@ -1,0 +1,9 @@
+﻿//callback inteface for root server to push data back to client API
+namespace edu.syr.cse784.eskimodb.sharedobjs
+{
+  interface IRootServerCallback
+  {
+    void PutDataset(QueryResult result, QueryDataset data);
+    void PutDatasetInfo(QueryResult result, string id, long lines);
+  }
+}

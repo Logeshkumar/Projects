@@ -1,0 +1,12 @@
+syntax: glob
+obj/
+*.suo
+AuthServer/AuthServer.csproj.orig
+bin/*/*.exe
+bin/*/*.pdb
+bin/*/*.manifest
+bin/*/*.dll
+AuthServer/bin/Debug/test-cases/DICT.TXT
+AuthServer/bin/Debug/Password.txt
+AuthServer/bin/Debug/UserAccount.txt
+RestAPINew/bin/*

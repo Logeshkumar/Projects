@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace edu.syr.cse784.eskimodb.sharedobjs
+{
+  /* TableResponse class is used to provide a response back to the root server for the requests sent.
+   * The class constructor is used to set the message.
+   * getMessage() is responsible for retrieving the response message.
+   * @param m_message is used to set and retrieve a response message.
+   */
+  public class TableResponse
+  {
+    string m_message;
+    public TableResponse(string message)
+    {
+      m_message = message;
+    }
+
+    public string getMessage()
+    {
+      return m_message;
+    }
+  }
+}

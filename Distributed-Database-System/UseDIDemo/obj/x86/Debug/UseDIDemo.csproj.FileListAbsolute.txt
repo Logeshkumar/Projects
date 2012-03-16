@@ -1,0 +1,8 @@
+C:\d\studio\eskimodb\UseDIDemo\bin\Debug\UseDIDemo.exe
+C:\d\studio\eskimodb\UseDIDemo\bin\Debug\UseDIDemo.pdb
+C:\d\studio\eskimodb\UseDIDemo\bin\Debug\DependencyInjection.dll
+C:\d\studio\eskimodb\UseDIDemo\bin\Debug\NCover.dll
+C:\d\studio\eskimodb\UseDIDemo\bin\Debug\DependencyInjection.pdb
+C:\d\studio\eskimodb\UseDIDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\d\studio\eskimodb\UseDIDemo\obj\x86\Debug\UseDIDemo.exe
+C:\d\studio\eskimodb\UseDIDemo\obj\x86\Debug\UseDIDemo.pdb
