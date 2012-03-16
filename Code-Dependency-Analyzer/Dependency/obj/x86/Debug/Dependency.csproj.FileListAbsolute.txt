@@ -1,0 +1,11 @@
+D:\project-4\Dependency\bin\Debug\Dependency.exe
+D:\project-4\Dependency\bin\Debug\Dependency.pdb
+D:\project-4\Dependency\bin\Debug\MVCDemo.exe
+D:\project-4\Dependency\bin\Debug\Parser.exe
+D:\project-4\Dependency\bin\Debug\Types.exe
+D:\project-4\Dependency\bin\Debug\MVCDemo.pdb
+D:\project-4\Dependency\bin\Debug\Parser.pdb
+D:\project-4\Dependency\bin\Debug\Types.pdb
+D:\project-4\Dependency\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\project-4\Dependency\obj\x86\Debug\Dependency.exe
+D:\project-4\Dependency\obj\x86\Debug\Dependency.pdb

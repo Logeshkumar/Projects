@@ -1,0 +1,15 @@
+C:\su\CSE681\code\MVCDemo\SemiExp\bin\Debug\SemiExp.exe
+C:\su\CSE681\code\MVCDemo\SemiExp\bin\Debug\SemiExp.pdb
+C:\su\CSE681\code\MVCDemo\SemiExp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\su\CSE681\code\MVCDemo\SemiExp\obj\x86\Debug\SemiExp.exe
+C:\su\CSE681\code\MVCDemo\SemiExp\obj\x86\Debug\SemiExp.pdb
+C:\su\CSE681\code\MVCDemo-NewBeta\SemiExp\obj\x86\Debug\SemiExp.exe
+C:\su\CSE681\code\MVCDemo-NewBeta\SemiExp\obj\x86\Debug\SemiExp.pdb
+C:\su\CSE681\code\MVCDemo-NewBeta\SemiExp\bin\Debug\SemiExp.exe
+C:\su\CSE681\code\MVCDemo-NewBeta\SemiExp\bin\Debug\SemiExp.pdb
+C:\su\CSE681\code\MVCDemo-NewBeta\SemiExp\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\project-4\SemiExp\bin\Debug\SemiExp.exe
+D:\project-4\SemiExp\bin\Debug\SemiExp.pdb
+D:\project-4\SemiExp\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\project-4\SemiExp\obj\x86\Debug\SemiExp.exe
+D:\project-4\SemiExp\obj\x86\Debug\SemiExp.pdb

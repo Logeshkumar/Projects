@@ -1,0 +1,5 @@
+bin\Debug\TestVectorGenerator.exe
+bin\Debug\TestVectorGenerator.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\TestVectorGenerator.exe
+obj\Debug\TestVectorGenerator.pdb

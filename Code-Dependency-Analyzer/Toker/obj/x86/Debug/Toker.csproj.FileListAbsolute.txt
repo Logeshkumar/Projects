@@ -1,0 +1,15 @@
+C:\su\CSE681\code\MVCDemo\Toker\bin\Debug\Toker.exe
+C:\su\CSE681\code\MVCDemo\Toker\bin\Debug\Toker.pdb
+C:\su\CSE681\code\MVCDemo\Toker\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\su\CSE681\code\MVCDemo\Toker\obj\x86\Debug\Toker.exe
+C:\su\CSE681\code\MVCDemo\Toker\obj\x86\Debug\Toker.pdb
+C:\su\CSE681\code\MVCDemo-NewBeta\Toker\obj\x86\Debug\Toker.exe
+C:\su\CSE681\code\MVCDemo-NewBeta\Toker\obj\x86\Debug\Toker.pdb
+C:\su\CSE681\code\MVCDemo-NewBeta\Toker\bin\Debug\Toker.exe
+C:\su\CSE681\code\MVCDemo-NewBeta\Toker\bin\Debug\Toker.pdb
+C:\su\CSE681\code\MVCDemo-NewBeta\Toker\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\project-4\Toker\bin\Debug\Toker.exe
+D:\project-4\Toker\bin\Debug\Toker.pdb
+D:\project-4\Toker\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\project-4\Toker\obj\x86\Debug\Toker.exe
+D:\project-4\Toker\obj\x86\Debug\Toker.pdb

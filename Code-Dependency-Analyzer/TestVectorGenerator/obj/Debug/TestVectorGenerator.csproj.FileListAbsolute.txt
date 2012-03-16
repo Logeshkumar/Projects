@@ -1,0 +1,5 @@
+C:\Users\loki\Downloads\TestHarnessPrototype\TestVectorGenerator\bin\Debug\TestVectorGenerator.exe
+C:\Users\loki\Downloads\TestHarnessPrototype\TestVectorGenerator\bin\Debug\TestVectorGenerator.pdb
+C:\Users\loki\Downloads\TestHarnessPrototype\TestVectorGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Downloads\TestHarnessPrototype\TestVectorGenerator\obj\Debug\TestVectorGenerator.exe
+C:\Users\loki\Downloads\TestHarnessPrototype\TestVectorGenerator\obj\Debug\TestVectorGenerator.pdb

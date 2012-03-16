@@ -1,0 +1,15 @@
+C:\su\CSE681\code\TestHarnessPrototype\ITest\bin\Debug\ITest.dll
+C:\su\CSE681\code\TestHarnessPrototype\ITest\bin\Debug\ITest.pdb
+C:\su\CSE681\code\TestHarnessPrototype\ITest\obj\Debug\ResolveAssemblyReference.cache
+C:\su\CSE681\code\TestHarnessPrototype\ITest\obj\Debug\ITest.dll
+C:\su\CSE681\code\TestHarnessPrototype\ITest\obj\Debug\ITest.pdb
+C:\Users\loki\Downloads\TestHarnessPrototype\ITest\bin\Debug\ITest.dll
+C:\Users\loki\Downloads\TestHarnessPrototype\ITest\bin\Debug\ITest.pdb
+C:\Users\loki\Downloads\TestHarnessPrototype\ITest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Downloads\TestHarnessPrototype\ITest\obj\Debug\ITest.dll
+C:\Users\loki\Downloads\TestHarnessPrototype\ITest\obj\Debug\ITest.pdb
+D:\proj4.0\Client\ITest\bin\Debug\ITest.dll
+D:\proj4.0\Client\ITest\bin\Debug\ITest.pdb
+D:\proj4.0\Client\ITest\obj\Debug\ResolveAssemblyReference.cache
+D:\proj4.0\Client\ITest\obj\Debug\ITest.dll
+D:\proj4.0\Client\ITest\obj\Debug\ITest.pdb

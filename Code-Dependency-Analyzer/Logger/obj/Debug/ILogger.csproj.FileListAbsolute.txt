@@ -1,0 +1,10 @@
+C:\Users\loki\Downloads\TestHarnessPrototype\Logger\bin\Debug\Logger.dll
+C:\Users\loki\Downloads\TestHarnessPrototype\Logger\bin\Debug\Logger.pdb
+C:\Users\loki\Downloads\TestHarnessPrototype\Logger\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\loki\Downloads\TestHarnessPrototype\Logger\obj\Debug\Logger.dll
+C:\Users\loki\Downloads\TestHarnessPrototype\Logger\obj\Debug\Logger.pdb
+D:\proj4.0\Client\Logger\bin\Debug\Logger.dll
+D:\proj4.0\Client\Logger\bin\Debug\Logger.pdb
+D:\proj4.0\Client\Logger\obj\Debug\ResolveAssemblyReference.cache
+D:\proj4.0\Client\Logger\obj\Debug\Logger.dll
+D:\proj4.0\Client\Logger\obj\Debug\Logger.pdb

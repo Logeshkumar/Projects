@@ -1,0 +1,5 @@
+C:\su\CSE681\code\MVCDemo\MVCDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\su\CSE681\code\MVCDemo\MVCDemo\bin\Debug\MVCDemo.exe
+C:\su\CSE681\code\MVCDemo\MVCDemo\bin\Debug\MVCDemo.pdb
+C:\su\CSE681\code\MVCDemo\MVCDemo\obj\x86\Debug\MVCDemo.exe
+C:\su\CSE681\code\MVCDemo\MVCDemo\obj\x86\Debug\MVCDemo.pdb

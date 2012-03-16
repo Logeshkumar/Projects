@@ -1,0 +1,5 @@
+bin\Debug\ITest.dll
+bin\Debug\ITest.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ITest.dll
+obj\Debug\ITest.pdb
